@@ -15,8 +15,8 @@ export function renderLayout(user) {
     <aside class="sidebar" id="sidebar" aria-label="Main navigation">
       <div class="sidebar-header">
         <div class="sidebar-logo">
-          <div class="sidebar-logo-icon">N</div>
-          <span class="sidebar-logo-text">NexusAdmin</span>
+          <div class="sidebar-logo-icon">J</div>
+          <span class="sidebar-logo-text">JazzyAdmin</span>
         </div>
         <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">
           <i class="fas fa-angles-left"></i>
