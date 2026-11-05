@@ -25,22 +25,22 @@ export function renderAnalytics() {
     <div class="grid grid-2" style="margin-bottom:1.25rem">
       <div class="card">
         <div class="card-header"><h3><i class="fas fa-chart-line text-primary"></i> Revenue Trend</h3></div>
-        <div class="card-body"><div class="chart-container"><canvas id="lineChart"></canvas></div></div>
+        <div class="card-body"><div class="chart-container" id="lineChart" role="img" aria-label="Four week revenue trend"></div></div>
       </div>
       <div class="card">
         <div class="card-header"><h3><i class="fas fa-chart-bar text-primary"></i> Sales by Category</h3></div>
-        <div class="card-body"><div class="chart-container"><canvas id="barChart"></canvas></div></div>
+        <div class="card-body"><div class="chart-container" id="barChart" role="img" aria-label="Sales by category"></div></div>
       </div>
     </div>
 
     <div class="grid grid-2">
       <div class="card">
         <div class="card-header"><h3><i class="fas fa-chart-pie text-primary"></i> Category Distribution</h3></div>
-        <div class="card-body"><div class="chart-container"><canvas id="pieChart"></canvas></div></div>
+        <div class="card-body"><div class="chart-container" id="pieChart" role="img" aria-label="Category distribution"></div></div>
       </div>
       <div class="card">
         <div class="card-header"><h3><i class="fas fa-user-plus text-primary"></i> Customer Growth</h3></div>
-        <div class="card-body"><div class="chart-container"><canvas id="growthChart"></canvas></div></div>
+        <div class="card-body"><div class="chart-container" id="growthChart" role="img" aria-label="Customer growth over the year"></div></div>
       </div>
     </div>
 

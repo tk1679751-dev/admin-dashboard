@@ -6,7 +6,7 @@ const THEME_KEY = 'dashboard-theme';
 const SIDEBAR_KEY = 'dashboard-sidebar-collapsed';
 
 export function initTheme() {
-  const saved = localStorage.getItem(THEME_KEY) || 'light';
+  const saved = localStorage.getItem(THEME_KEY) || 'dark';
   setTheme(saved, false);
 
   document.addEventListener('click', (e) => {

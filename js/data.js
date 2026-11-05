@@ -26,16 +26,16 @@ export const customers = [
 ];
 
 export const products = [
-  { id: 1, name: 'Wireless Headphones Pro', category: 'Electronics', price: 149.99, discount: 10, stock: 45, sku: 'WHP-001', status: 'in-stock', image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop', tags: ['wireless', 'audio'], created: '2024-11-01' },
-  { id: 2, name: 'Smart Watch Series X', category: 'Electronics', price: 299.99, discount: 0, stock: 23, sku: 'SWX-002', status: 'in-stock', image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop', tags: ['wearable', 'smart'], created: '2024-10-15' },
-  { id: 3, name: 'Premium Leather Bag', category: 'Fashion', price: 89.99, discount: 15, stock: 0, sku: 'PLB-003', status: 'out-of-stock', image: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=200&h=200&fit=crop', tags: ['leather', 'accessories'], created: '2024-09-20' },
-  { id: 4, name: 'Organic Coffee Beans', category: 'Food', price: 24.99, discount: 0, stock: 120, sku: 'OCB-004', status: 'in-stock', image: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=200&h=200&fit=crop', tags: ['organic', 'coffee'], created: '2024-12-01' },
-  { id: 5, name: 'Yoga Mat Premium', category: 'Sports', price: 49.99, discount: 20, stock: 8, sku: 'YMP-005', status: 'low-stock', image: 'https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=200&h=200&fit=crop', tags: ['fitness', 'yoga'], created: '2024-08-05' },
-  { id: 6, name: 'Desk Lamp LED', category: 'Home', price: 59.99, discount: 0, stock: 67, sku: 'DLD-006', status: 'in-stock', image: 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=200&h=200&fit=crop', tags: ['lighting', 'office'], created: '2024-07-22' },
-  { id: 7, name: 'Running Shoes Ultra', category: 'Sports', price: 129.99, discount: 25, stock: 34, sku: 'RSU-007', status: 'in-stock', image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop', tags: ['running', 'shoes'], created: '2024-06-10' },
-  { id: 8, name: 'Bluetooth Speaker', category: 'Electronics', price: 79.99, discount: 0, stock: 56, sku: 'BTS-008', status: 'in-stock', image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=200&h=200&fit=crop', tags: ['audio', 'portable'], created: '2024-05-18' },
-  { id: 9, name: 'Ceramic Plant Pot', category: 'Home', price: 34.99, discount: 0, stock: 3, sku: 'CPP-009', status: 'low-stock', image: 'https://images.unsplash.com/photo-1485955900006-10f4d324d246?w=200&h=200&fit=crop', tags: ['decor', 'plants'], created: '2024-04-02' },
-  { id: 10, name: 'Silk Scarf Collection', category: 'Fashion', price: 45.99, discount: 10, stock: 28, sku: 'SSC-010', status: 'in-stock', image: 'https://images.unsplash.com/photo-1601924994987-69fb2638fbf6?w=200&h=200&fit=crop', tags: ['silk', 'accessories'], created: '2024-03-25' },
+  { id: 1, name: 'Wireless Headphones Pro', category: 'Electronics', price: 149.99, discount: 10, stock: 45, sku: 'WHP-001', status: 'in-stock', image: 'assets/products/product-thumbnail-01.jpg', tags: ['wireless', 'audio'], created: '2024-11-01' },
+  { id: 2, name: 'Smart Watch Series X', category: 'Electronics', price: 299.99, discount: 0, stock: 23, sku: 'SWX-002', status: 'in-stock', image: 'assets/products/product-thumbnail-02.jpg', tags: ['wearable', 'smart'], created: '2024-10-15' },
+  { id: 3, name: 'Premium Leather Bag', category: 'Fashion', price: 89.99, discount: 15, stock: 0, sku: 'PLB-003', status: 'out-of-stock', image: 'assets/products/product-thumbnail-03.jpg', tags: ['leather', 'accessories'], created: '2024-09-20' },
+  { id: 4, name: 'Organic Coffee Beans', category: 'Food', price: 24.99, discount: 0, stock: 120, sku: 'OCB-004', status: 'in-stock', image: 'assets/products/product-thumbnail-04.jpg', tags: ['organic', 'coffee'], created: '2024-12-01' },
+  { id: 5, name: 'Yoga Mat Premium', category: 'Sports', price: 49.99, discount: 20, stock: 8, sku: 'YMP-005', status: 'low-stock', image: 'assets/products/product-thumbnail-05.jpg', tags: ['fitness', 'yoga'], created: '2024-08-05' },
+  { id: 6, name: 'Desk Lamp LED', category: 'Home', price: 59.99, discount: 0, stock: 67, sku: 'DLD-006', status: 'in-stock', image: 'assets/products/product-thumbnail-06.jpg', tags: ['lighting', 'office'], created: '2024-07-22' },
+  { id: 7, name: 'Running Shoes Ultra', category: 'Sports', price: 129.99, discount: 25, stock: 34, sku: 'RSU-007', status: 'in-stock', image: 'assets/products/product-thumbnail-07.jpg', tags: ['running', 'shoes'], created: '2024-06-10' },
+  { id: 8, name: 'Bluetooth Speaker', category: 'Electronics', price: 79.99, discount: 0, stock: 56, sku: 'BTS-008', status: 'in-stock', image: 'assets/products/product-thumbnail-08.jpg', tags: ['audio', 'portable'], created: '2024-05-18' },
+  { id: 9, name: 'Ceramic Plant Pot', category: 'Home', price: 34.99, discount: 0, stock: 3, sku: 'CPP-009', status: 'low-stock', image: 'assets/products/product-thumbnail-09.jpg', tags: ['decor', 'plants'], created: '2024-04-02' },
+  { id: 10, name: 'Silk Scarf Collection', category: 'Fashion', price: 45.99, discount: 10, stock: 28, sku: 'SSC-010', status: 'in-stock', image: 'assets/products/product-thumbnail-10.jpg', tags: ['silk', 'accessories'], created: '2024-03-25' },
 ];
 
 export const orders = [
@@ -177,3 +177,18 @@ export const pageTitles = {
   faq: { title: 'FAQ', breadcrumb: 'FAQ' },
   help: { title: 'Help Center', breadcrumb: 'Help Center' },
 };
+
+const currency = (value) => Number.parseFloat(String(value).replace(/[$,]/g, ''));
+const orderTotal = (rows) => rows.reduce((sum, row) => sum + currency(row.total), 0);
+const itemTotal = (rows) => rows.reduce((sum, row) => sum + row.products, 0);
+console.assert(products.length === 10, 'Products inventory should contain 10 sample rows.');
+console.assert(customers.length === 12, 'Customer directory should contain 12 sample rows.');
+console.assert(orders.length === 8 && orderTotal(orders).toFixed(2) === '2083.84' && itemTotal(orders) === 19, 'Order sample totals must reconcile.');
+console.assert(recentOrders.length === 5 && orderTotal(recentOrders).toFixed(2) === '1299.91' && itemTotal(recentOrders) === 12, 'Recent order sample totals must reconcile.');
+console.assert(chartData.salesOverview.sales.reduce((a, b) => a + b, 0) === 80200, 'Monthly sales must total 80200 USD.');
+console.assert(chartData.revenue.data.reduce((a, b) => a + b, 0) === 32700, 'Weekly revenue must total 32700 USD.');
+console.assert(chartData.analytics.line.data.reduce((a, b) => a + b, 0) === 58500, 'Analytics revenue must total 58500 USD.');
+console.assert(chartData.analytics.bar.data.reduce((a, b) => a + b, 0) === 128000, 'Category sales must total 128000 USD.');
+console.assert(chartData.analytics.pie.data.reduce((a, b) => a + b, 0) === 100, 'Category shares must total 100 percent.');
+console.assert(tasks.filter((task) => !task.completed).length === 4, 'Open task count must reconcile.');
+console.assert(conversations.filter((thread) => thread.unread).length === 2, 'Unread conversation count must reconcile.');

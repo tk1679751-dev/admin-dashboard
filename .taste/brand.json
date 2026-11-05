@@ -1,0 +1,376 @@
+{
+  "version": 1,
+  "foundation": {
+    "strategy": "extend",
+    "existingAssets": [
+      "FUNCTIONS-AND-UX.md",
+      "css/variables.css",
+      "css/base.css",
+      "css/layout.css",
+      "css/components.css",
+      "css/pages.css",
+      "css/auth.css",
+      "style.css",
+      "index.html",
+      "login.html",
+      "js/layout.js",
+      "js/router.js",
+      "js/theme.js"
+    ],
+    "assetActions": [
+      {
+        "asset": "FUNCTIONS-AND-UX.md",
+        "action": "protect",
+        "reason": "Verified source for JazzyAdmin product scope, existing UI behavior, navigation, themes, typography, and interaction rules."
+      },
+      {
+        "asset": "css/variables.css",
+        "action": "evolve",
+        "reason": "Extend the existing indigo/violet theme tokens into the dark data-terminal system while preserving theme persistence and semantic status roles."
+      },
+      {
+        "asset": "css/base.css",
+        "action": "evolve",
+        "reason": "Replace the current type and animation treatment with the selected interface and numeric faces, dense type scale, tabular figures, and feedback-only motion."
+      },
+      {
+        "asset": "css/layout.css",
+        "action": "evolve",
+        "reason": "Evolve the current fixed sidebar into the dealt icon-rail shell with responsive mobile bottom navigation and accessible tooltips."
+      },
+      {
+        "asset": "css/components.css",
+        "action": "evolve",
+        "reason": "Refine cards, controls, tables, tabs, pills, modals, and feedback states to use flat dark surfaces, 1px rules, tight radii, and restrained accent usage."
+      },
+      {
+        "asset": "css/pages.css",
+        "action": "evolve",
+        "reason": "Apply the data-terminal layout patterns to dashboard, analytics, reports, lists, details, and settings without changing their product responsibilities."
+      },
+      {
+        "asset": "css/auth.css",
+        "action": "evolve",
+        "reason": "Bring the sign-in, registration, and forgot-password experience into the same dark, dense, responsive product language."
+      },
+      {
+        "asset": "style.css",
+        "action": "preserve",
+        "reason": "Keep the existing stylesheet entry point while its imported design layers are updated."
+      },
+      {
+        "asset": "index.html",
+        "action": "evolve",
+        "reason": "Preserve the authenticated application entry point, product name, external dependencies, and accessible document structure."
+      },
+      {
+        "asset": "login.html",
+        "action": "evolve",
+        "reason": "Preserve the authentication flows and JazzyAdmin identity while correcting the stale NexusAdmin metadata and aligning the visual system."
+      },
+      {
+        "asset": "js/layout.js",
+        "action": "evolve",
+        "reason": "Preserve navigation and user actions while adapting the shell to the icon rail, responsive bottom bar, active accent rule, and accessible labels."
+      },
+      {
+        "asset": "js/router.js",
+        "action": "evolve",
+        "reason": "Preserve hash routing and chart cleanup while making transitions feedback-only, interruptible, and reduced-motion aware."
+      },
+      {
+        "asset": "js/theme.js",
+        "action": "preserve",
+        "reason": "Retain saved theme, sidebar, mobile drawer, and authentication behavior as product constraints."
+      }
+    ],
+    "lockedDecisions": [
+      "JazzyAdmin remains the product name and the existing J monogram remains the source of the mark.",
+      "The branded default presentation is dark data-terminal; the existing light theme remains available for compatibility.",
+      "The current dark primary indigo #6366F1 becomes the single accent role, replacing the dealt blue because it is an existing JazzyAdmin brand colour.",
+      "The existing violet secondary is not used as a second active accent, preserving the sheet's under-3% colour budget.",
+      "The shell uses a 55px icon rail on desktop and a four-to-five-item labelled bottom bar on mobile.",
+      "The mark is an accent J monogram or compact order-flow symbol, not a black square with a letter, and it is drawn in CSS or inline markup rather than invented as a logo file.",
+      "The existing Inter family is retained as the interface face; JetBrains Mono is added only for prices, counts, IDs, dates, and other updating figures.",
+      "No gradients, glows, glass effects, saturated icon containers, decorative stock imagery, or entrance animations.",
+      "All selections use a 1px accent rule nearest the selected label or control edge, with signs and text carrying meaning before colour."
+    ],
+    "assumptions": [
+      "No attached reference images were supplied, so no external visual asset was adopted.",
+      "The existing CSS declarations count as the verified brand source; no standalone logo asset file was found.",
+      "The current sample product thumbnails and initials remain functional interface imagery, not brand photography.",
+      "The sheet's dark tokens remain authoritative except where the verified JazzyAdmin indigo brand colour replaces the accent role.",
+      "The user's request for richer animation is interpreted as richer interaction feedback for tabs, filters, drawers, modals, charts, and navigation, with no decorative entrance choreography."
+    ]
+  },
+  "creativeDirection": {
+    "summary": "A dark, dense commerce operations console with Inter for the interface and JetBrains Mono for every changing figure. It should feel quiet, exact, and built for long working sessions, with JazzyAdmin indigo appearing only as a precise data or selection signal.",
+    "traits": [
+      {
+        "quality": "Operational and exact",
+        "boundary": "not flashy, playful, or promotional"
+      },
+      {
+        "quality": "Dense but legible",
+        "boundary": "not cramped or visually noisy"
+      },
+      {
+        "quality": "Human and product-specific",
+        "boundary": "not a generic AI dashboard kit"
+      },
+      {
+        "quality": "Quietly branded",
+        "boundary": "not colour-led or gradient-heavy"
+      }
+    ],
+    "productiveTension": "The interface balances research-terminal restraint with the urgency of store operations: most chrome stays neutral while order movement, selected data, and actionable changes get a single controlled accent or signed status.",
+    "signatureDevice": {
+      "description": "Order-flow strip: a compact overview strip that shows recent order volume and value movement as thin time marks beside the main chart, making the store's operational pulse visible without becoming a decorative sparkline.",
+      "status": "candidate",
+      "invariants": [
+        "Appears only on the overview as a product-specific commerce signal.",
+        "Uses one accent hue for the active/current movement and neutral rules for context.",
+        "Shows a real time range and units, never an unlabeled decoration.",
+        "Uses signed text for change, such as +24 orders or -$842.",
+        "Keeps a flat, 1px-led treatment with no gradient, glow, or filled colour block."
+      ]
+    },
+    "restraint": "Keep colour under 3%, let alignment and typography carry hierarchy, use one chart question at a time, and preserve empty states and honest zeros.",
+    "avoid": [
+      "Marketing hero treatments",
+      "Large decorative illustrations",
+      "Generic welcome-copy patterns",
+      "Filled segmented controls",
+      "Pill-heavy navigation",
+      "Zebra tables",
+      "KPI icons in coloured circles",
+      "Perpetual motion",
+      "Unsupported claims or fake proof"
+    ]
+  },
+  "colorPalette": [
+    {
+      "name": "ground",
+      "value": "#171719",
+      "usage": "Primary page and icon-rail ground for the dark branded mode."
+    },
+    {
+      "name": "surface",
+      "value": "#131217",
+      "usage": "Main work surfaces and cards, darker than the ground with the sheet's restrained shadow only where a card needs separation."
+    },
+    {
+      "name": "raised",
+      "value": "#212023",
+      "usage": "Nested raised surfaces, neutral active states, and compact data groupings."
+    },
+    {
+      "name": "border",
+      "value": "#222224",
+      "usage": "Structural 1px surface boundaries."
+    },
+    {
+      "name": "rule",
+      "value": "#1b1a1f",
+      "usage": "Table row rules, chart guides, and quiet dividers."
+    },
+    {
+      "name": "control",
+      "value": "#3a3a3e",
+      "usage": "Interactive outlines and control borders that must read as actionable on the dark surface."
+    },
+    {
+      "name": "text",
+      "value": "#ffffff",
+      "usage": "Primary labels, titles, key values, and readable figure ink."
+    },
+    {
+      "name": "muted",
+      "value": "#8a8c92",
+      "usage": "Secondary labels, metadata, axis text, and inactive navigation; lifted to preserve readable contrast."
+    },
+    {
+      "name": "accent",
+      "value": "#6366F1",
+      "usage": "Existing JazzyAdmin dark primary mapped to the sheet accent; restricted to 1px selections, active data marks, and one current-state cue."
+    },
+    {
+      "name": "positive",
+      "value": "#44a282",
+      "usage": "Positive operational status and signed improvement, used sparingly."
+    },
+    {
+      "name": "negative",
+      "value": "#e5566f",
+      "usage": "Negative operational status and signed decline, used sparingly."
+    },
+    {
+      "name": "warning",
+      "value": "#d9a441",
+      "usage": "Low-stock, pending, or attention-needed status."
+    },
+    {
+      "name": "chart-1",
+      "value": "#f2f2f3",
+      "usage": "Primary neutral chart series and baseline data."
+    },
+    {
+      "name": "chart-2",
+      "value": "#e5566f",
+      "usage": "Negative or comparison chart series when polarity is relevant."
+    },
+    {
+      "name": "chart-3",
+      "value": "#6366F1",
+      "usage": "Current JazzyAdmin-branded chart series, replacing the dealt blue while remaining the only strong data hue."
+    },
+    {
+      "name": "pill-positive-bg",
+      "value": "#1b2828",
+      "usage": "Dark background for positive status pills."
+    },
+    {
+      "name": "pill-positive-ink",
+      "value": "#5fc39c",
+      "usage": "Readable positive status text and icon ink."
+    },
+    {
+      "name": "pill-negative-bg",
+      "value": "#2c1a20",
+      "usage": "Dark background for negative status pills."
+    },
+    {
+      "name": "pill-negative-ink",
+      "value": "#e5566f",
+      "usage": "Readable negative status text and icon ink."
+    },
+    {
+      "name": "pill-warning-bg",
+      "value": "#2a2416",
+      "usage": "Dark background for warning and pending pills."
+    },
+    {
+      "name": "pill-warning-ink",
+      "value": "#d9a441",
+      "usage": "Readable warning status text and icon ink."
+    },
+    {
+      "name": "pill-neutral-bg",
+      "value": "#212023",
+      "usage": "Neutral status and inactive state background."
+    },
+    {
+      "name": "pill-neutral-ink",
+      "value": "#bdbdc0",
+      "usage": "Neutral status text and icon ink."
+    }
+  ],
+  "typefaces": [
+    {
+      "family": "Inter",
+      "source": "Existing project brand in css/base.css and css/variables.css",
+      "roles": [
+        "interface",
+        "navigation",
+        "labels",
+        "body",
+        "titles"
+      ],
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "JetBrains Mono",
+      "source": "Google Fonts",
+      "roles": [
+        "prices",
+        "counts",
+        "IDs",
+        "dates",
+        "times",
+        "updating figures"
+      ],
+      "weights": [
+        400,
+        500,
+        600
+      ]
+    }
+  ],
+  "interfaceDirection": "Use the 55px icon rail with the JazzyAdmin mark at the top, short grouped hairlines, outline icons, accessible tooltips, and utilities anchored at the bottom. The top header stays quiet and compact. Use dense tables with 42px rows, no zebra fill, right-aligned tabular numbers, identity columns widest, one status mark per row, and a kebab at the far edge. Dashboard KPIs live as a divided strip or chart tabs, not icon cards. Use 20px section titles, 16px card titles, 20px KPI figures, 13px body text, and 12px labels. Labels are sentence case, grey, and never tracked capitals. Controls are 34px high with outlined secondary actions and one primary action using an inverted near-white fill. Selected tabs, ranges, toggles, and navigation use a 1px accent rule or neutral brightness shift. Positive, negative, warning, and neutral statuses use the specified dark pill pairs. On mobile, the rail becomes a labelled bottom bar, tables become two-line rows, tabs scroll horizontally, and controls become full-width where needed.",
+  "designTokens": {
+    "typeScale": {
+      "display": "26px",
+      "h1": "26px",
+      "h2": "20px",
+      "h3": "20px",
+      "body": "13px",
+      "small": "12px",
+      "label": "12px"
+    },
+    "radius": {
+      "scale": [
+        "6px"
+      ],
+      "pill": "999px"
+    },
+    "spacing": {
+      "section": "32px",
+      "gutter": "24px",
+      "stack": "24px"
+    },
+    "buttons": {
+      "primary": "34px high, near-white #FFFFFF fill with #171719 text in dark mode; use the single primary action per title row and reserve it for the main task.",
+      "secondary": "34px high, transparent surface fill with a 1px #3A3A3E border and #FFFFFF label; use for adjacent non-primary actions."
+    },
+    "surfaces": "Use #171719 for the ground, #131217 for work surfaces, and #212023 for nested raised states. Separate surfaces with 1px #222224 or #1B1A1F rules. The sheet shadow 0 12px 28px rgba(0,0,0,.2) belongs to dark cards only; menus, popovers, and tooltips may float with an appropriate shadow, while controls and rows cast none."
+  },
+  "imageDirection": {
+    "summary": "Show only operational imagery inside product rows and cards: existing product thumbnails, cover or product imagery where the data calls for it, and people as stable initials on pale tints of their identity hue.",
+    "subjects": [
+      "Product thumbnails in Products, Orders, and Top Products.",
+      "Customer and message avatars as initials with stable pale identity tints.",
+      "No imagery in charts, navigation, KPI strips, settings, or authentication backgrounds."
+    ],
+    "treatment": "Crop product imagery consistently, keep it subordinate to names and numbers, and never let image colour compete with the single accent. Keep initials stable and distinct across people.",
+    "avoid": [
+      "Decorative hero imagery",
+      "Stock photography",
+      "Illustration used as filler",
+      "Generated portraits presented as real customers",
+      "Emoji or ornamental image backgrounds"
+    ]
+  },
+  "motionDirection": {
+    "summary": "Motion is feedback for real state changes only, using one shared 160ms to 220ms ease-out character and respecting reduced motion.",
+    "principles": [
+      "Selection feedback and trigger; move the 1px accent rule or neutral active state between tabs, ranges, toggles, or nav items; affect only the selected relationship; 160-180ms; crisp ease-out.",
+      "Drawer and overlay response; opening or closing the mobile rail, modal, or popover; affect the shell-to-content relationship and focus placement; 180-220ms; controlled ease-out with interruptible reversal.",
+      "Filter and sort feedback; applying search, status, category, or sort controls; affect row replacement while preserving the table frame and readable identity; 160-200ms; short ease-out with no entrance replay.",
+      "Chart state feedback; changing a real metric, period, or series selection; affect the selected line, scale, and comparison values together; 180-220ms; smooth ease-out without count-up theatrics.",
+      "Form and action feedback; focus, validation, save, delete confirmation, export, and toast states; affect the related control or feedback message; 120-180ms; immediate ease-out and clear final state."
+    ],
+    "avoid": [
+      "Scroll reveals",
+      "Perpetual decorative motion",
+      "Automatic entrances on page load",
+      "Count-up animations for sample metrics",
+      "Motion that hides data or breaks rapid repeated input"
+    ]
+  },
+  "voice": {
+    "summary": "Use concise trade language for store operations: “Orders awaiting dispatch”, “Low stock”, “Waiting on customer”, “Net sales”, “Top products”, “Add product”, “Export report”, “No orders match these filters”, and “Due on the 28th”. Keep labels sentence case and let numbers carry units and signs.",
+    "avoid": [
+      "Generic nouns such as Items, Records, or Data",
+      "Marketing slogans",
+      "Fake testimonials or proof",
+      "Unexplained abbreviations",
+      "Overly cheerful assistant language",
+      "Claims that sample browser data represents live production results"
+    ]
+  }
+}

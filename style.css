@@ -1,5 +1,7 @@
 /* Main stylesheet — imports all modules */
+@import './css/app-kit.css';
 @import './css/base.css';
 @import './css/layout.css';
 @import './css/components.css';
 @import './css/pages.css';
+@import './css/terminal.css';

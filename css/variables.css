@@ -36,7 +36,7 @@
   --radius-lg: 14px;
   --radius-xl: 20px;
   --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  --font: 'Inter', 'Poppins', system-ui, sans-serif;
+  --font: 'Inter', system-ui, sans-serif;
 }
 
 [data-theme="dark"] {

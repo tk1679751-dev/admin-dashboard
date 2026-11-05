@@ -1,0 +1,1534 @@
+{
+  "version": 1,
+  "page": {
+    "title": "Dashboard",
+    "route": "/dashboard",
+    "description": "JazzyAdmin store operations, orders, products, customers, and next actions."
+  },
+  "architecture": {
+    "contract": "This screen answers: What needs attention in today's store activity before the next shipment window?",
+    "mode": "operate_monitor",
+    "novelty": "medium",
+    "grid": "12 columns with a 24px gutter, 32px page padding, and a 55px icon rail: 12 x 88.08px + 11 x 24px + 2 x 32px + 55px = 1440px.",
+    "signatureRule": "Every selected tab, range, toggle, and navigation item uses a 1px JazzyAdmin accent rule nearest its label. Numbers stay neutral and carry meaning with signed text.",
+    "rhythm": "Dense data-terminal rhythm: 42px table rows, 28px compact list rows, 32px card padding, 24px shared gaps, 13px body text, 12px labels, and 20px section titles."
+  },
+  "navigation": [
+    {
+      "label": "Dashboard",
+      "target": "#/dashboard"
+    },
+    {
+      "label": "Analytics",
+      "target": "#/analytics"
+    },
+    {
+      "label": "Reports",
+      "target": "#/reports"
+    },
+    {
+      "label": "Customers",
+      "target": "#/customers"
+    },
+    {
+      "label": "Products",
+      "target": "#/products"
+    },
+    {
+      "label": "Add Product",
+      "target": "#/add-product"
+    },
+    {
+      "label": "Orders",
+      "target": "#/orders"
+    },
+    {
+      "label": "Messages",
+      "target": "#/messages"
+    },
+    {
+      "label": "FAQ",
+      "target": "#/faq"
+    },
+    {
+      "label": "Help Center",
+      "target": "#/help"
+    },
+    {
+      "label": "Settings",
+      "target": "#/settings"
+    }
+  ],
+  "navigationDesign": {
+    "layoutCase": "icon-rail",
+    "layout": "55px desktop icon rail with JazzyAdmin J mark, outline icons, short group hairlines, accessible tooltips, and utilities at the bottom. A compact top bar carries the breadcrumb, search, theme toggle, notifications, and account menu.",
+    "behavior": [
+      "Active navigation is marked by icon brightness plus a 1px accent edge, never a filled coloured pill.",
+      "Orders and Messages show action counts with clear nouns and preserve their badges in the tooltip and mobile label.",
+      "The current route remains a real destination and never scrolls to an anchor inside the current view.",
+      "The mobile rail becomes a labelled bottom bar with Dashboard, Orders, Products, Messages, and Settings."
+    ],
+    "transformation": {
+      "compact": "At 390px, use a 48px top bar plus a five-item bottom bar with 44px touch targets. Open the full navigation, workspace scope, account menu, and utilities in a focus-managed sheet.",
+      "medium": "At 641-1100px, use the top bar as the primary shell, keep the bottom bar or a compact drawer, and preserve the 12-column content grid with stacked narrow panels.",
+      "expanded": "At 1101px and above, use the 55px icon rail, 32px page padding, and the full 12-column canvas."
+    }
+  },
+  "sections": [
+    {
+      "id": "shell",
+      "layoutFamily": "dashboard",
+      "layoutCases": [
+        "icon-rail"
+      ],
+      "purpose": "Name JazzyAdmin, expose real destinations, and provide the global controls required for store operations.",
+      "userQuestion": "Where can the administrator move from today's store work?",
+      "stage": "orient",
+      "dependencies": [],
+      "evidence": [
+        "FUNCTIONS-AND-UX.md shell functions and sidebar groups",
+        "js/layout.js",
+        "js/theme.js",
+        "js/data.js navItems and notifications"
+      ],
+      "copy": {
+        "heading": "JazzyAdmin",
+        "body": [
+          "Store operations"
+        ],
+        "callsToAction": []
+      },
+      "layout": "A 55px full-height icon rail on the left, a compact top bar above the content area, and a single 1px rule between shell and workspace. The rail carries the J monogram, 15-18px outline icons, tooltips, action badges for Orders 47 and Messages 3, and bottom utilities. The top bar carries Home / current page, global search, theme toggle, notifications, and the current administrator menu.",
+      "motion": {
+        "purpose": "state_change",
+        "trigger": "state_change",
+        "behavior": "Open and close the mobile navigation sheet, account menu, notification menu, and theme state while returning focus to the triggering control.",
+        "durationMs": 200,
+        "easing": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "reducedMotion": "Apply the final open or closed state immediately and preserve focus behavior."
+      },
+      "componentNeeds": [],
+      "assetNeeds": [],
+      "transformation": {
+        "compact": "Bottom navigation and full-screen navigation sheet; top bar keeps page title, menu, and one primary action.",
+        "medium": "Top bar plus compact navigation drawer; rail is hidden.",
+        "expanded": "Persistent icon rail and top bar remain visible."
+      }
+    },
+    {
+      "id": "dashboard-pulse",
+      "layoutFamily": "dashboard",
+      "layoutCases": [
+        "kpi-tabs-chart"
+      ],
+      "purpose": "Lead with the store's current operating state and the action that matters most.",
+      "userQuestion": "What needs attention before the next shipment window?",
+      "stage": "orient",
+      "dependencies": [],
+      "evidence": [
+        "js/data.js stats",
+        "js/data.js orders",
+        "FUNCTIONS-AND-UX.md Dashboard requirements"
+      ],
+      "copy": {
+        "heading": "Dashboard",
+        "body": [
+          "47 orders are pending while revenue is $48,352 and orders are up 8.2%.",
+          "Sample data: revenue $48,352, orders 1,284, customers 3,642, products 856, pending orders 47."
+        ],
+        "callsToAction": [
+          {
+            "label": "Review pending orders",
+            "target": "#/orders?status=pending"
+          }
+        ]
+      },
+      "layout": "Full-width first block on the 12-column grid. Use a divided operating strip with five neutral KPI values, then a compact order-flow strip showing the recent order pulse with dates and units. Keep the pending-order figure as the only immediate attention signal. The primary action sits in the title row and is one click from the finding.",
+      "motion": {
+        "purpose": "feedback",
+        "trigger": "press",
+        "behavior": "Update the selected operating metric or order-flow period without changing the frame, scale, or stable row identity.",
+        "durationMs": 180,
+        "easing": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "reducedMotion": "Swap values and selection state immediately."
+      },
+      "componentNeeds": [],
+      "assetNeeds": [],
+      "transformation": {
+        "compact": "Use a 2-column KPI grid with Pending orders full width if needed, then a 160px order-flow strip and the review action in the title row.",
+        "medium": "Use a 2-column KPI grid and a 200px order-flow strip below it.",
+        "expanded": "Use five equal KPI cells split by 1px rules and a compact order-flow strip within the same first block."
+      }
+    },
+    {
+      "id": "dashboard-sales-overview",
+      "layoutFamily": "dashboard",
+      "layoutCases": [
+        "kpi-tabs-chart"
+      ],
+      "purpose": "Show whether monthly sales and orders are moving together.",
+      "userQuestion": "How did sales and order volume move through the year?",
+      "stage": "evaluate",
+      "dependencies": [],
+      "evidence": [
+        "js/data.js chartData.salesOverview",
+        "js/pages/dashboard.js"
+      ],
+      "copy": {
+        "heading": "Sales overview",
+        "body": [
+          "Revenue rises from $4,200 in January to $9,200 in December, with 245 orders in December.",
+          "Sample data: 12 monthly revenue points and 12 monthly order counts."
+        ],
+        "callsToAction": [
+          {
+            "label": "Open analytics",
+            "target": "#/analytics"
+          }
+        ]
+      },
+      "layout": "Eight-column chart block with KPI tabs for Revenue and Orders. Use one line series at a time, 3-4 faint gridlines, 4-6 y-axis ticks, dated x-axis labels, hover dot, and a 2-3-row comparison table with right-aligned values and changes versus the prior month. The active KPI gets the 2px accent rule.",
+      "motion": {
+        "purpose": "state_change",
+        "trigger": "state_change",
+        "behavior": "Switch between Revenue and Orders series and update the comparison rows together without replaying an entrance.",
+        "durationMs": 200,
+        "easing": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "reducedMotion": "Replace the series and table immediately."
+      },
+      "componentNeeds": [],
+      "assetNeeds": [],
+      "transformation": {
+        "compact": "Full-width 160-200px chart with a horizontally scrollable KPI tab row, four x-axis labels, and the comparison table below.",
+        "medium": "Eight-column chart becomes full width if the adjacent revenue block would fall below 340px; keep the KPI tab row single-line.",
+        "expanded": "Eight-column chart with the revenue analytics block paired beside it when both retain readable width."
+      }
+    },
+    {
+      "id": "dashboard-revenue-analytics",
+      "layoutFamily": "dashboard",
+      "layoutCases": [
+        "app-screen"
+      ],
+      "purpose": "Compare the current week's daily revenue without adding another headline chart.",
+      "userQuestion": "Which days contributed most to this week's revenue?",
+      "stage": "evaluate",
+      "dependencies": [],
+      "evidence": [
+        "js/data.js chartData.revenue",
+        "js/pages/dashboard.js"
+      ],
+      "copy": {
+        "heading": "Revenue this week",
+        "body": [
+          "Saturday leads at $6,100 and Monday is the quietest day at $3,200.",
+          "Sample data: Monday to Sunday revenue totals $32,700."
+        ],
+        "callsToAction": [
+          {
+            "label": "View reports",
+            "target": "#/reports"
+          }
+        ]
+      },
+      "layout": "Four-column compact column chart paired with the sales overview at desktop. Use square-corner columns, seven dated day labels, a visible unit label, and a small period control for This week or Last week. No gradient, fill glow, or unscaled chart.",
+      "motion": {
+        "purpose": "state_change",
+        "trigger": "state_change",
+        "behavior": "Change the selected week and redraw the columns with preserved axes and readable values.",
+        "durationMs": 180,
+        "easing": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "reducedMotion": "Replace the columns immediately."
+      },
+      "componentNeeds": [],
+      "assetNeeds": [],
+      "transformation": {
+        "compact": "Stack below Sales overview as a full-width 160px chart with the period control in the card header.",
+        "medium": "Stack below or beside Sales overview based on available width, never below 340px.",
+        "expanded": "Four-column companion block beside the eight-column Sales overview."
+      }
+    },
+    {
+      "id": "dashboard-recent-orders",
+      "layoutFamily": "dashboard",
+      "layoutCases": [
+        "table-filter-bar"
+      ],
+      "purpose": "Put the most recent fulfilment work beside the overview data.",
+      "userQuestion": "Which orders were placed most recently and what state are they in?",
+      "stage": "act",
+      "dependencies": [],
+      "evidence": [
+        "js/data.js recentOrders",
+        "js/pages/dashboard.js"
+      ],
+      "copy": {
+        "heading": "Recent orders",
+        "body": [
+          "ORD-7842 is delivered, ORD-7840 is processing, and ORD-7839 is pending.",
+          "Sample data: 5 recent order rows from 8 total sample orders, with 12 items and $1,299.91 across the five displayed rows."
+        ],
+        "callsToAction": [
+          {
+            "label": "View all orders",
+            "target": "#/orders"
+          }
+        ]
+      },
+      "layout": "Six-column table/list block paired with Top products. Show up to five rows on a 42px pitch with order ID and customer as identity, item count and total right-aligned, one status mark, date, and a trailing kebab. Put View all in the header or pinned footer.",
+      "motion": {
+        "purpose": "feedback",
+        "trigger": "hover",
+        "behavior": "Highlight one row without changing the table layout, expose the row action, and keep the status mark singular.",
+        "durationMs": 140,
+        "easing": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "reducedMotion": "Apply the hover or focus state immediately."
+      },
+      "componentNeeds": [],
+      "assetNeeds": [],
+      "transformation": {
+        "compact": "Use two-line rows: order ID and total on line one, customer, item count, status, and date on line two with one trailing action.",
+        "medium": "Keep four columns with customer and email as a subline, and retain total, status, and date.",
+        "expanded": "Six-column compact table with five rows and a View all action."
+      }
+    },
+    {
+      "id": "dashboard-top-products",
+      "layoutFamily": "dashboard",
+      "layoutCases": [
+        "app-screen"
+      ],
+      "purpose": "Show which products are driving store revenue.",
+      "userQuestion": "Which products are leading revenue and unit volume?",
+      "stage": "evaluate",
+      "dependencies": [],
+      "evidence": [
+        "js/data.js topProducts",
+        "js/data.js products"
+      ],
+      "copy": {
+        "heading": "Top products",
+        "body": [
+          "Wireless Headphones Pro leads with $12,450 from 83 units.",
+          "Sample data: 5 ranked products with revenue, units sold, category, and existing thumbnails."
+        ],
+        "callsToAction": [
+          {
+            "label": "Manage products",
+            "target": "#/products"
+          }
+        ]
+      },
+      "layout": "Six-column ranked list paired with Recent orders. Use product thumbnails, rank, product name, category, revenue, and units on 28px compact rows. Keep the identity column widest, align revenue and units to the right, and show only five rows.",
+      "motion": {
+        "purpose": "feedback",
+        "trigger": "hover",
+        "behavior": "Highlight the product row and expose its product action without animating the thumbnail.",
+        "durationMs": 140,
+        "easing": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "reducedMotion": "Apply the row highlight immediately."
+      },
+      "componentNeeds": [],
+      "assetNeeds": [
+        "product-thumbnail-01",
+        "product-thumbnail-02",
+        "product-thumbnail-07",
+        "product-thumbnail-03",
+        "product-thumbnail-08"
+      ],
+      "transformation": {
+        "compact": "Full-width list with 44px thumbnail rows, product name and revenue on line one, category and units on line two.",
+        "medium": "Use a six-column paired list when each side stays above 340px, otherwise stack below Recent orders.",
+        "expanded": "Six-column ranked list paired with Recent orders, sharing the same bottom edge."
+      }
+    },
+    {
+      "id": "dashboard-activity",
+      "layoutFamily": "dashboard",
+      "layoutCases": [
+        "app-screen"
+      ],
+      "purpose": "Explain what moved recently and identify the next operational follow-up.",
+      "userQuestion": "What changed in the store during the last six hours?",
+      "stage": "act",
+      "dependencies": [],
+      "evidence": [
+        "js/data.js activities",
+        "js/pages/dashboard.js"
+      ],
+      "copy": {
+        "heading": "Activity",
+        "body": [
+          "A new order, a restock, a payment, a low-stock alert, a new customer, and a cancellation arrived in the last six hours.",
+          "Sample data: 6 activity entries with timestamp, object, and operational state."
+        ],
+        "callsToAction": [
+          {
+            "label": "Open orders",
+            "target": "#/orders"
+          }
+        ]
+      },
+      "layout": "Six-column compact activity list beside the Work queue. Use a 28px pitch, one polarity mark only on the affected fact, signed or explicit status text, and a quiet timestamp. No decorative timeline animation.",
+      "motion": {
+        "purpose": "feedback",
+        "trigger": "state_change",
+        "behavior": "Append a newly created activity row only when an actual local action creates it, preserving existing rows and scroll position.",
+        "durationMs": 180,
+        "easing": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "reducedMotion": "Insert the new row immediately."
+      },
+      "componentNeeds": [],
+      "assetNeeds": [],
+      "transformation": {
+        "compact": "Show three rows with a View all or Open orders link and a full-width empty frame when no activity exists.",
+        "medium": "Use six columns beside Work queue if both remain readable, otherwise stack.",
+        "expanded": "Six-column activity block paired with Work queue."
+      }
+    },
+    {
+      "id": "dashboard-work-queue",
+      "layoutFamily": "dashboard",
+      "layoutCases": [
+        "app-screen"
+      ],
+      "purpose": "Keep the most common follow-up jobs visible from the first screen.",
+      "userQuestion": "What should the administrator do next?",
+      "stage": "act",
+      "dependencies": [],
+      "evidence": [
+        "js/data.js tasks and notes",
+        "js/pages/dashboard.js"
+      ],
+      "copy": {
+        "heading": "Work queue",
+        "body": [
+          "Review pending orders and respond to customer inquiries are the two open high-priority tasks.",
+          "Sample data: 5 tasks, 4 open and 1 complete, plus 4 notes."
+        ],
+        "callsToAction": [
+          {
+            "label": "Review tasks",
+            "target": "#/dashboard"
+          }
+        ]
+      },
+      "layout": "Six-column task and note block paired with Activity. Show tasks first, then four notes in a compact secondary list. Each task has priority, completion state, keyboard-accessible checkbox, and text action. Keep the main task action adjacent to the finding.",
+      "motion": {
+        "purpose": "state_change",
+        "trigger": "press",
+        "behavior": "Toggle a task's completion state, update its priority mark if changed, and preserve the row position.",
+        "durationMs": 160,
+        "easing": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "reducedMotion": "Toggle state immediately."
+      },
+      "componentNeeds": [],
+      "assetNeeds": [],
+      "transformation": {
+        "compact": "Show the three most relevant tasks, keep notes behind a disclosure, and use a full-width action row.",
+        "medium": "Keep six columns beside Activity if both retain readable row text, otherwise stack.",
+        "expanded": "Six-column task and note block paired with Activity."
+      }
+    },
+    {
+      "id": "dashboard-calendar-weather",
+      "layoutFamily": "dashboard",
+      "layoutCases": [
+        "app-screen"
+      ],
+      "purpose": "Keep today's operating context visible without competing with orders and revenue.",
+      "userQuestion": "What date and local context frame today's work?",
+      "stage": "orient",
+      "dependencies": [],
+      "evidence": [
+        "FUNCTIONS-AND-UX.md Dashboard requirements",
+        "js/pages/dashboard.js"
+      ],
+      "copy": {
+        "heading": "Today",
+        "body": [
+          "Calendar and weather context remain compact so the store's orders and revenue stay primary.",
+          "Sample data: current calendar date, local weather reading, and the existing calendar widget state."
+        ],
+        "callsToAction": [
+          {
+            "label": "Open settings",
+            "target": "#/settings"
+          }
+        ]
+      },
+      "layout": "Use one six-column compact context block below the main operational blocks. Place calendar first and weather second within the same surface, with no decorative weather imagery. Keep the first date and current condition visible at desktop.",
+      "motion": {
+        "purpose": "none",
+        "trigger": "none",
+        "behavior": "Static reading region with no entrance or perpetual motion.",
+        "durationMs": 0,
+        "easing": "linear",
+        "reducedMotion": "No motion."
+      },
+      "componentNeeds": [],
+      "assetNeeds": [],
+      "transformation": {
+        "compact": "Stack calendar and weather with the date and current condition at the top of the block.",
+        "medium": "Use a two-column inner layout if each item remains readable.",
+        "expanded": "Use one six-column context block with calendar and weather side by side."
+      }
+    },
+    {
+      "id": "analytics-summary",
+      "layoutFamily": "dashboard",
+      "layoutCases": [
+        "app-screen"
+      ],
+      "purpose": "Answer whether revenue, orders, customers, and conversion are moving at a useful level.",
+      "userQuestion": "How is the store performing across its main business measures?",
+      "stage": "orient",
+      "dependencies": [],
+      "evidence": [
+        "FUNCTIONS-AND-UX.md Analytics requirements",
+        "js/data.js chartData.analytics"
+      ],
+      "copy": {
+        "heading": "Analytics",
+        "body": [
+          "Revenue is $128K across 2,847 orders with 3,642 customers and a 4.8% conversion rate.",
+          "Sample data: revenue $128K, orders 2,847, customers 3,642, conversion 4.8%."
+        ],
+        "callsToAction": [
+          {
+            "label": "Export CSV",
+            "target": "#/analytics?export=csv"
+          }
+        ]
+      },
+      "layout": "Full-width divided KPI strip with four equal cells and no KPI icons or sparklines. The title row holds Export CSV as the one secondary action. Use the first screen finding in the title subline.",
+      "motion": {
+        "purpose": "feedback",
+        "trigger": "press",
+        "behavior": "Confirm CSV export with a short toast and keep the analytics frame unchanged.",
+        "durationMs": 160,
+        "easing": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "reducedMotion": "Show the final toast state immediately."
+      },
+      "componentNeeds": [],
+      "assetNeeds": [],
+      "transformation": {
+        "compact": "Use a 2-column metric grid with conversion full width if needed.",
+        "medium": "Use two rows of two metrics when four columns would be too narrow.",
+        "expanded": "Use four equal KPI cells split by 1px rules."
+      }
+    },
+    {
+      "id": "analytics-revenue-trend",
+      "layoutFamily": "dashboard",
+      "layoutCases": [
+        "app-screen"
+      ],
+      "purpose": "Show the four-week revenue trend as the main evidence for the analytics question.",
+      "userQuestion": "Is revenue rising across the four-week sample period?",
+      "stage": "evaluate",
+      "dependencies": [],
+      "evidence": [
+        "js/data.js chartData.analytics.line"
+      ],
+      "copy": {
+        "heading": "Revenue trend",
+        "body": [
+          "Revenue peaks at $18,000 in Week 4 after a $13,500 Week 3.",
+          "Sample data: four weekly revenue points totaling $58,500."
+        ],
+        "callsToAction": []
+      },
+      "layout": "Seven-column line chart with four dated x-axis labels, a visible dollar unit, 3-4 gridlines, and no legend for the single series. Keep the chart as the largest analytics block.",
+      "motion": {
+        "purpose": "state_change",
+        "trigger": "state_change",
+        "behavior": "Update the selected analytics period with stable axes and a single current-series line.",
+        "durationMs": 200,
+        "easing": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "reducedMotion": "Replace the data immediately."
+      },
+      "componentNeeds": [],
+      "assetNeeds": [],
+      "transformation": {
+        "compact": "Full-width 160-200px chart with four x labels.",
+        "medium": "Use the chart full width if the category block would fall below 340px.",
+        "expanded": "Seven-column main chart beside Category mix."
+      }
+    },
+    {
+      "id": "analytics-category-sales",
+      "layoutFamily": "dashboard",
+      "layoutCases": [
+        "app-screen"
+      ],
+      "purpose": "Show which product categories contribute the most revenue.",
+      "userQuestion": "Which category contributes the most sales?",
+      "stage": "evaluate",
+      "dependencies": [],
+      "evidence": [
+        "js/data.js chartData.analytics.bar"
+      ],
+      "copy": {
+        "heading": "Sales by category",
+        "body": [
+          "Electronics contributes $45,000, ahead of Fashion at $28,000 and Sports at $22,000.",
+          "Sample data: 5 category values totaling $128,000."
+        ],
+        "callsToAction": [
+          {
+            "label": "View products",
+            "target": "#/products"
+          }
+        ]
+      },
+      "layout": "Five-column sorted horizontal bar list or square-corner columns, paired with Category share. Keep category labels and dollar values visible without a separate legend.",
+      "motion": {
+        "purpose": "state_change",
+        "trigger": "state_change",
+        "behavior": "Sort or filter the category bars while preserving the value labels and chart scale.",
+        "durationMs": 180,
+        "easing": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "reducedMotion": "Replace the bars immediately."
+      },
+      "componentNeeds": [],
+      "assetNeeds": [],
+      "transformation": {
+        "compact": "Stack below Revenue trend as a full-width 160px ranked bar list.",
+        "medium": "Use five columns beside Category share only when both remain readable.",
+        "expanded": "Five-column category block paired with Category share."
+      }
+    },
+    {
+      "id": "analytics-category-share",
+      "layoutFamily": "dashboard",
+      "layoutCases": [
+        "app-screen"
+      ],
+      "purpose": "Show the category distribution as a share of the same $128,000 sample total.",
+      "userQuestion": "How is revenue distributed across categories?",
+      "stage": "evaluate",
+      "dependencies": [],
+      "evidence": [
+        "js/data.js chartData.analytics.pie"
+      ],
+      "copy": {
+        "heading": "Category share",
+        "body": [
+          "Electronics holds 35% of the sample mix, followed by Fashion at 22%.",
+          "Sample data: 5 category shares totaling 100%."
+        ],
+        "callsToAction": []
+      },
+      "layout": "Five-column thin ring or 100% stacked bar with at most five parts, explicit percentage labels, and no rainbow palette. Keep the ring secondary to the category bars and encode labels beside the mark.",
+      "motion": {
+        "purpose": "state_change",
+        "trigger": "state_change",
+        "behavior": "Update the share mark when category scope changes while keeping the total at 100%.",
+        "durationMs": 180,
+        "easing": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "reducedMotion": "Replace the share values immediately."
+      },
+      "componentNeeds": [],
+      "assetNeeds": [],
+      "transformation": {
+        "compact": "Use a full-width 160px stacked bar with a two-column key above or below it.",
+        "medium": "Pair beside Sales by category if each block remains above 340px.",
+        "expanded": "Five-column share block paired with Sales by category."
+      }
+    },
+    {
+      "id": "analytics-customer-growth",
+      "layoutFamily": "dashboard",
+      "layoutCases": [
+        "app-screen"
+      ],
+      "purpose": "Show whether the customer base is growing across the sample year.",
+      "userQuestion": "Is the customer base growing over the year?",
+      "stage": "evaluate",
+      "dependencies": [],
+      "evidence": [
+        "js/data.js chartData.customerGrowth"
+      ],
+      "copy": {
+        "heading": "Customer growth",
+        "body": [
+          "The sample series rises from 120 customers in the first point to 920 in the twelfth.",
+          "Sample data: 12 customer-growth points with units of customers."
+        ],
+        "callsToAction": [
+          {
+            "label": "Open customers",
+            "target": "#/customers"
+          }
+        ]
+      },
+      "layout": "Four-column compact line chart or signed bar list with twelve dated points, a visible customer unit, and no decorative fill. Pair it with Revenue table below the category row.",
+      "motion": {
+        "purpose": "state_change",
+        "trigger": "state_change",
+        "behavior": "Update the growth range when the period control changes and preserve the chart scale.",
+        "durationMs": 180,
+        "easing": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "reducedMotion": "Replace the series immediately."
+      },
+      "componentNeeds": [],
+      "assetNeeds": [],
+      "transformation": {
+        "compact": "Full-width 160px chart with four x labels and a compact summary value.",
+        "medium": "Stack below category blocks.",
+        "expanded": "Four-column compact chart paired with Revenue table."
+      }
+    },
+    {
+      "id": "analytics-revenue-table",
+      "layoutFamily": "dashboard",
+      "layoutCases": [
+        "table-filter-bar"
+      ],
+      "purpose": "Provide row-level evidence behind the analytics totals.",
+      "userQuestion": "Which revenue rows support the summary figures?",
+      "stage": "prove",
+      "dependencies": [],
+      "evidence": [
+        "FUNCTIONS-AND-UX.md Analytics requirements",
+        "js/data.js chartData"
+      ],
+      "copy": {
+        "heading": "Revenue report",
+        "body": [
+          "Revenue rows use the same dates, categories, amounts, and units as the summary and charts.",
+          "Sample data: period, category, orders, revenue, and conversion rows derived from the analytics source values."
+        ],
+        "callsToAction": [
+          {
+            "label": "Export CSV",
+            "target": "#/analytics?export=csv"
+          }
+        ]
+      },
+      "layout": "Full-width no-card table with sentence-case headers, 42px rows, right-aligned numeric columns, a count, and a trailing row action. Drop any column empty across all rows. Keep the table below the chart blocks.",
+      "motion": {
+        "purpose": "feedback",
+        "trigger": "hover",
+        "behavior": "Highlight a row, preserve numeric alignment, and expose the row action on focus or hover.",
+        "durationMs": 140,
+        "easing": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "reducedMotion": "Apply row state immediately."
+      },
+      "componentNeeds": [],
+      "assetNeeds": [],
+      "transformation": {
+        "compact": "Use two-line rows with period and revenue on line one, category, orders, and conversion on line two.",
+        "medium": "Keep period, category, orders, revenue, and conversion columns.",
+        "expanded": "Full-width dense table with 42px rows and a computed total row."
+      }
+    },
+    {
+      "id": "reports-period",
+      "layoutFamily": "dashboard",
+      "layoutCases": [
+        "app-screen"
+      ],
+      "purpose": "Choose the report period before reading or exporting the result.",
+      "userQuestion": "Which reporting period should be reviewed?",
+      "stage": "qualify",
+      "dependencies": [],
+      "evidence": [
+        "FUNCTIONS-AND-UX.md Reports requirements",
+        "js/pages/reports.js"
+      ],
+      "copy": {
+        "heading": "Reports",
+        "body": [
+          "The current sample report can be viewed by day, week, month, or a custom date range."
+        ],
+        "callsToAction": [
+          {
+            "label": "Apply range",
+            "target": "#/reports?period=custom"
+          }
+        ]
+      },
+      "layout": "Full-width title row with underline period tabs for Daily, Weekly, Monthly, and Custom range. The custom range uses two 34px date controls and one Apply action. No filled segmented control.",
+      "motion": {
+        "purpose": "state_change",
+        "trigger": "state_change",
+        "behavior": "Move the 2px accent rule to the selected period and replace the report summary and chart with that period's values.",
+        "durationMs": 180,
+        "easing": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "reducedMotion": "Switch period immediately."
+      },
+      "componentNeeds": [],
+      "assetNeeds": [],
+      "transformation": {
+        "compact": "Tabs scroll in their own row; custom dates stack under one control row with full-width Apply.",
+        "medium": "Keep tabs single-line and custom dates in one row if controls remain at least 160px wide.",
+        "expanded": "Full-width underline tabs with custom range controls aligned to the right."
+      }
+    },
+    {
+      "id": "reports-summary",
+      "layoutFamily": "dashboard",
+      "layoutCases": [
+        "app-screen"
+      ],
+      "purpose": "Show the selected period's result before export.",
+      "userQuestion": "What did the selected period produce?",
+      "stage": "evaluate",
+      "dependencies": [],
+      "evidence": [
+        "FUNCTIONS-AND-UX.md Reports requirements",
+        "js/pages/reports.js"
+      ],
+      "copy": {
+        "heading": "Period summary",
+        "body": [
+          "The selected period shows revenue, orders, customers, and the period comparison in one compact report view.",
+          "Sample data: summary figures are derived from the selected report period and carry explicit units."
+        ],
+        "callsToAction": [
+          {
+            "label": "Export PDF",
+            "target": "#/reports?export=pdf"
+          }
+        ]
+      },
+      "layout": "Eight-column summary and chart block below the period controls. Use a divided KPI strip and one chart for the selected period, with the finding beside the export action.",
+      "motion": {
+        "purpose": "state_change",
+        "trigger": "state_change",
+        "behavior": "Update the summary values and chart together when the period changes, with no count-up animation.",
+        "durationMs": 180,
+        "easing": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "reducedMotion": "Replace values immediately."
+      },
+      "componentNeeds": [],
+      "assetNeeds": [],
+      "transformation": {
+        "compact": "Stack summary values above a full-width 160px chart.",
+        "medium": "Use two columns with the chart full width below the summary if needed.",
+        "expanded": "Eight-column summary and chart paired with report types."
+      }
+    },
+    {
+      "id": "reports-types",
+      "layoutFamily": "dashboard",
+      "layoutCases": [
+        "app-screen"
+      ],
+      "purpose": "Choose the report subject before exporting.",
+      "userQuestion": "Which report subject needs a file?",
+      "stage": "act",
+      "dependencies": [],
+      "evidence": [
+        "FUNCTIONS-AND-UX.md Reports requirements",
+        "js/pages/reports.js"
+      ],
+      "copy": {
+        "heading": "Report types",
+        "body": [
+          "Sales, Revenue, Customer, Inventory, Tax, and Performance are available for the selected period."
+        ],
+        "callsToAction": [
+          {
+            "label": "Export Excel",
+            "target": "#/reports?export=excel"
+          }
+        ]
+      },
+      "layout": "Four-column compact list of six report types with one selected row marked by the 1px accent rule and no filled tiles. Pair beside Period summary on desktop or stack below it.",
+      "motion": {
+        "purpose": "state_change",
+        "trigger": "press",
+        "behavior": "Select one report type and update the export action's target label without moving the block.",
+        "durationMs": 160,
+        "easing": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "reducedMotion": "Select immediately."
+      },
+      "componentNeeds": [],
+      "assetNeeds": [],
+      "transformation": {
+        "compact": "Use a full-width two-column list with the selected type marked by the accent rule.",
+        "medium": "Use four columns beside the summary when each label remains readable.",
+        "expanded": "Four-column report-type list beside Period summary."
+      }
+    },
+    {
+      "id": "customers-list",
+      "layoutFamily": "dashboard",
+      "layoutCases": [
+        "table-filter-bar"
+      ],
+      "purpose": "Find and manage customer records that need attention.",
+      "userQuestion": "Which customers need follow-up or account changes?",
+      "stage": "act",
+      "dependencies": [],
+      "evidence": [
+        "js/data.js customers",
+        "js/pages/customers.js",
+        "FUNCTIONS-AND-UX.md Customers requirements"
+      ],
+      "copy": {
+        "heading": "Customers",
+        "body": [
+          "12 sample customers include 2 pending and 2 inactive accounts.",
+          "Sample data: 12 customer rows with name, email, phone, status, order count, total spent, join date, location, and initials."
+        ],
+        "callsToAction": [
+          {
+            "label": "Add customer",
+            "target": "#/customers?new=1"
+          }
+        ]
+      },
+      "layout": "Full-width list screen with title row, Add customer primary action, underline status tabs for All, Active, Inactive, Pending, then search and count toolbar. Use 8 rows per page, 42px table rows, widest identity column, right-aligned orders and spend, one status mark, and trailing actions.",
+      "motion": {
+        "purpose": "state_change",
+        "trigger": "state_change",
+        "behavior": "Filter, search, sort, paginate, open view or edit modal, and confirm delete while keeping counts computed from the current view.",
+        "durationMs": 180,
+        "easing": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "reducedMotion": "Apply the new rows and selected state immediately."
+      },
+      "componentNeeds": [],
+      "assetNeeds": [],
+      "transformation": {
+        "compact": "Full-width search, horizontally scrolling tabs, two-line rows with name and spend on line one and email, status, orders, and join date on line two.",
+        "medium": "Keep name, email, orders, spend, and status columns with phone and join date as sublines.",
+        "expanded": "Full-width 8-row table with 42px rows and pagination."
+      }
+    },
+    {
+      "id": "products-list",
+      "layoutFamily": "dashboard",
+      "layoutCases": [
+        "table-filter-bar"
+      ],
+      "purpose": "Find products and act on stock risk or product details.",
+      "userQuestion": "Which products need stock action or editing?",
+      "stage": "act",
+      "dependencies": [],
+      "evidence": [
+        "js/data.js products and categories",
+        "js/pages/products.js",
+        "FUNCTIONS-AND-UX.md Products requirements"
+      ],
+      "copy": {
+        "heading": "Products",
+        "body": [
+          "2 sample products are low stock and 1 is out of stock across 10 products.",
+          "Sample data: 10 product rows across Electronics, Fashion, Food, Sports, and Home with price, discount, stock units, SKU, tags, status, and thumbnails."
+        ],
+        "callsToAction": [
+          {
+            "label": "Add product",
+            "target": "#/add-product"
+          }
+        ]
+      },
+      "layout": "Full-width list with Add product primary action, search, category filter, stock filter, sort control, and grid/table switcher. Use product thumbnails, identity first, price and discount, stock units, status, and trailing actions. Bulk delete appears only when rows are selected.",
+      "motion": {
+        "purpose": "state_change",
+        "trigger": "state_change",
+        "behavior": "Filter by category or stock, sort, switch grid/table, select rows, and enable bulk delete only when selection exists.",
+        "durationMs": 180,
+        "easing": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "reducedMotion": "Apply the new view immediately."
+      },
+      "componentNeeds": [],
+      "assetNeeds": [
+        "product-thumbnail-01",
+        "product-thumbnail-02",
+        "product-thumbnail-03",
+        "product-thumbnail-04",
+        "product-thumbnail-05",
+        "product-thumbnail-06",
+        "product-thumbnail-07",
+        "product-thumbnail-08",
+        "product-thumbnail-09",
+        "product-thumbnail-10"
+      ],
+      "transformation": {
+        "compact": "Use a two-line product list with thumbnail, name, price, and stock on line one; category, SKU, discount, and status on line two; one trailing action.",
+        "medium": "Keep thumbnail, identity, price, stock, and status columns, moving category, SKU, and discount into sublines.",
+        "expanded": "Support both dense table and grid views, with 9 products per page and 42px table rows."
+      }
+    },
+    {
+      "id": "add-product-form",
+      "layoutFamily": "dashboard",
+      "layoutCases": [
+        "app-screen"
+      ],
+      "purpose": "Create or save a product with valid identity, pricing, inventory, and imagery.",
+      "userQuestion": "Can this product be saved with valid pricing and stock data?",
+      "stage": "act",
+      "dependencies": [],
+      "evidence": [
+        "js/pages/add-product.js",
+        "FUNCTIONS-AND-UX.md Add Product requirements"
+      ],
+      "copy": {
+        "heading": "Add product",
+        "body": [
+          "The draft keeps product identity, price, discount, stock, tags, and image previews together before publishing."
+        ],
+        "callsToAction": [
+          {
+            "label": "Save draft",
+            "target": "#/add-product?save=draft"
+          },
+          {
+            "label": "Publish product",
+            "target": "#/add-product?publish=1"
+          }
+        ]
+      },
+      "layout": "Two-column form on the 12-column grid. The main form spans eight columns with identity, description, category, SKU, pricing, discount, stock, and tags. A four-column summary panel shows live discounted price and image preview. Use 40px fields, 16px field gaps, one Save draft secondary action, and one Publish product primary action.",
+      "motion": {
+        "purpose": "state_change",
+        "trigger": "state_change",
+        "behavior": "Update discounted price after price or discount input, validate required fields under the failing field, preview dropped images, and show Save or Publish feedback.",
+        "durationMs": 160,
+        "easing": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "reducedMotion": "Update validation, price, and preview states immediately."
+      },
+      "componentNeeds": [],
+      "assetNeeds": [],
+      "transformation": {
+        "compact": "Stack all fields and move the price preview above actions; image upload remains a full-width drop zone with 44px controls.",
+        "medium": "Use a seven-column form and five-column summary if both remain above 320px.",
+        "expanded": "Use an eight-column form beside a four-column live summary."
+      }
+    },
+    {
+      "id": "orders-list",
+      "layoutFamily": "dashboard",
+      "layoutCases": [
+        "table-filter-bar"
+      ],
+      "purpose": "Prioritize fulfilment work and open order details.",
+      "userQuestion": "Which orders need fulfilment now?",
+      "stage": "act",
+      "dependencies": [],
+      "evidence": [
+        "js/data.js orders",
+        "js/pages/orders.js",
+        "FUNCTIONS-AND-UX.md Orders requirements"
+      ],
+      "copy": {
+        "heading": "Orders",
+        "body": [
+          "47 orders are pending in the store scope, including one pending row in the visible sample set.",
+          "Sample data: 8 order rows with order ID, customer, email, item count, total, status, date, payment method, and address; the 8 rows total $2,083.84 and 19 items."
+        ],
+        "callsToAction": [
+          {
+            "label": "Export orders",
+            "target": "#/orders?export=1"
+          }
+        ]
+      },
+      "layout": "Full-width table with underline status tabs for All, Pending, Processing, Shipped, Delivered, and Cancelled. Search across row text. Use 42px rows with order identity, customer, item count, total, status, date, and trailing kebab. View opens detail, Print opens invoice view, Download PDF and Export remain real actions.",
+      "motion": {
+        "purpose": "state_change",
+        "trigger": "state_change",
+        "behavior": "Filter, search, open order detail, change status, print, download, and export without losing the current filter or focus.",
+        "durationMs": 180,
+        "easing": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "reducedMotion": "Apply state immediately."
+      },
+      "componentNeeds": [],
+      "assetNeeds": [],
+      "transformation": {
+        "compact": "Use two-line rows with order ID and total on line one, customer, item count, status, and date on line two; keep one trailing action.",
+        "medium": "Keep order ID, customer, items, total, and status columns with email and date as sublines.",
+        "expanded": "Full-width 42px table with status tabs, search, count, sort, and row actions."
+      }
+    },
+    {
+      "id": "messages-inbox",
+      "layoutFamily": "dashboard",
+      "layoutCases": [
+        "app-screen"
+      ],
+      "purpose": "Find the person waiting for a reply and keep the thread action close.",
+      "userQuestion": "Who is waiting for a reply?",
+      "stage": "act",
+      "dependencies": [],
+      "evidence": [
+        "js/data.js conversations",
+        "js/pages/messages.js",
+        "FUNCTIONS-AND-UX.md Messages requirements"
+      ],
+      "copy": {
+        "heading": "Messages",
+        "body": [
+          "2 sample conversations are unread, and Michael Chen's refund request is the oldest unread thread.",
+          "Sample data: 5 conversations with stable initials, preview, timestamp, unread state, and message threads."
+        ],
+        "callsToAction": [
+          {
+            "label": "Reply to oldest unread",
+            "target": "#/messages?conversation=2"
+          }
+        ]
+      },
+      "layout": "Two-pane inbox on the 12-column grid. The conversation list spans five columns with 28px rows and unread marks. The active thread spans seven columns with sender initials, sent and received messages, timestamps, compose field, and Send action. No decorative chat bubbles or entrance animation.",
+      "motion": {
+        "purpose": "state_change",
+        "trigger": "press",
+        "behavior": "Select a conversation, mark unread state when opened, focus the compose field, append a sent reply locally, and preserve thread scroll position.",
+        "durationMs": 180,
+        "easing": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "reducedMotion": "Switch threads and append replies immediately."
+      },
+      "componentNeeds": [],
+      "assetNeeds": [],
+      "transformation": {
+        "compact": "Show one region at a time. Selecting a conversation pushes the thread view, and Back returns to the list at its scroll position.",
+        "medium": "Use a four-column conversation list and eight-column thread if both remain above 320px.",
+        "expanded": "Use a five-column list beside a seven-column thread."
+      }
+    },
+    {
+      "id": "faq-list",
+      "layoutFamily": "dashboard",
+      "layoutCases": [
+        "app-screen"
+      ],
+      "purpose": "Answer common operating questions without opening support.",
+      "userQuestion": "Can the administrator find the answer without contacting support?",
+      "stage": "explain",
+      "dependencies": [],
+      "evidence": [
+        "js/data.js faqItems",
+        "js/pages/faq.js",
+        "FUNCTIONS-AND-UX.md FAQ requirements"
+      ],
+      "copy": {
+        "heading": "FAQ",
+        "body": [
+          "Six answers cover products, reports, passwords, dashboard settings, order status, and support."
+        ],
+        "callsToAction": [
+          {
+            "label": "Open Help Center",
+            "target": "#/help"
+          }
+        ]
+      },
+      "layout": "Centered 8-column accordion with six rows, 42px headers, one expanded answer at a time, and a quiet count of six questions. Use sentence-case trade wording, keyboard expansion, visible focus, and no cards inside cards.",
+      "motion": {
+        "purpose": "state_change",
+        "trigger": "press",
+        "behavior": "Expand one FAQ answer, collapse the previous answer, update aria-expanded, and return focus to the opened header.",
+        "durationMs": 160,
+        "easing": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "reducedMotion": "Expand or collapse immediately."
+      },
+      "componentNeeds": [],
+      "assetNeeds": [],
+      "transformation": {
+        "compact": "Full-width accordion with 44px touch rows and one answer open at a time.",
+        "medium": "Use an eight-column centered accordion with 24px side padding.",
+        "expanded": "Use a centered eight-column accordion with six rows."
+      }
+    },
+    {
+      "id": "help-center",
+      "layoutFamily": "dashboard",
+      "layoutCases": [
+        "app-screen"
+      ],
+      "purpose": "Help the administrator solve an issue or send a clear support request.",
+      "userQuestion": "Can the administrator solve the issue or contact support with enough context?",
+      "stage": "de_risk",
+      "dependencies": [],
+      "evidence": [
+        "FUNCTIONS-AND-UX.md Help Center requirements",
+        "js/pages/help.js"
+      ],
+      "copy": {
+        "heading": "Help Center",
+        "body": [
+          "Search Getting Started, Products & Orders, Account & Billing, Analytics & Reports, Integrations, and Troubleshooting. Support is available at support@nexusadmin.com, +1 (555) 123-4567, Monday to Friday, 9AM to 6PM EST."
+        ],
+        "callsToAction": [
+          {
+            "label": "Send support message",
+            "target": "#/help?compose=1"
+          }
+        ]
+      },
+      "layout": "Eight-column help search and category block beside a four-column support block. The support block holds subject selection, message field, Submit action, and contact details. Popular articles appear below the search with three to six rows.",
+      "motion": {
+        "purpose": "state_change",
+        "trigger": "state_change",
+        "behavior": "Filter help articles, open and close the contact form, validate subject and message, and show a local confirmation toast after submit.",
+        "durationMs": 160,
+        "easing": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "reducedMotion": "Apply filtering, validation, and confirmation immediately."
+      },
+      "componentNeeds": [],
+      "assetNeeds": [],
+      "transformation": {
+        "compact": "Stack search, categories, popular articles, then the support form. Keep the first article within the first screen.",
+        "medium": "Use seven columns for articles and five for support if both remain readable.",
+        "expanded": "Use an eight-column article area beside a four-column support area."
+      }
+    },
+    {
+      "id": "settings-profile",
+      "layoutFamily": "dashboard",
+      "layoutCases": [
+        "settings-two-column"
+      ],
+      "purpose": "Update the administrator's identity and contact details.",
+      "userQuestion": "Which profile details should be saved?",
+      "stage": "act",
+      "dependencies": [],
+      "evidence": [
+        "FUNCTIONS-AND-UX.md Settings requirements",
+        "js/pages/settings.js"
+      ],
+      "copy": {
+        "heading": "Profile",
+        "body": [
+          "Keep the administrator's name, email, phone, bio, and initials current."
+        ],
+        "callsToAction": [
+          {
+            "label": "Save profile",
+            "target": "#/settings?section=profile"
+          }
+        ]
+      },
+      "layout": "Settings two-column row with a 450px label column and a 700px panel at a centered 1152px content width. Use 40px inputs, 16px field gaps, one Save button per panel, and no shadow or border on the light settings panel within the dark workspace.",
+      "motion": {
+        "purpose": "feedback",
+        "trigger": "press",
+        "behavior": "Validate email, save the profile locally, update the shell user name and avatar initials, and show a quiet Saved state.",
+        "durationMs": 160,
+        "easing": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "reducedMotion": "Show validation and Saved state immediately."
+      },
+      "componentNeeds": [],
+      "assetNeeds": [],
+      "transformation": {
+        "compact": "Stack title and description above the full-width panel, with 44px touch inputs.",
+        "medium": "Use stacked label and panel columns when either would fall below 320px.",
+        "expanded": "Use 450px label column beside a 700px settings panel."
+      }
+    },
+    {
+      "id": "settings-security",
+      "layoutFamily": "dashboard",
+      "layoutCases": [
+        "settings-two-column"
+      ],
+      "purpose": "Change the administrator password safely.",
+      "userQuestion": "Can the password be updated with matching, strong values?",
+      "stage": "de_risk",
+      "dependencies": [],
+      "evidence": [
+        "FUNCTIONS-AND-UX.md Settings Security requirements",
+        "js/pages/settings.js"
+      ],
+      "copy": {
+        "heading": "Security",
+        "body": [
+          "Update the current password, choose a new password, confirm it, and keep the strength feedback visible."
+        ],
+        "callsToAction": [
+          {
+            "label": "Update password",
+            "target": "#/settings?section=security"
+          }
+        ]
+      },
+      "layout": "Settings two-column row with current password, new password, strength bar, confirm password, show/hide controls, and one Update password action. Error text sits under the failing field.",
+      "motion": {
+        "purpose": "feedback",
+        "trigger": "state_change",
+        "behavior": "Update password strength and matching validation as the user types, then show a local confirmation after a valid update.",
+        "durationMs": 140,
+        "easing": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "reducedMotion": "Update validation immediately."
+      },
+      "componentNeeds": [],
+      "assetNeeds": [],
+      "transformation": {
+        "compact": "Stack the password fields full width with 44px touch controls.",
+        "medium": "Keep the two-column settings row if the panel remains readable.",
+        "expanded": "Use the full settings two-column pattern."
+      }
+    },
+    {
+      "id": "settings-email",
+      "layoutFamily": "dashboard",
+      "layoutCases": [
+        "settings-two-column"
+      ],
+      "purpose": "Choose which email updates the administrator receives.",
+      "userQuestion": "Which email updates should remain enabled?",
+      "stage": "act",
+      "dependencies": [],
+      "evidence": [
+        "FUNCTIONS-AND-UX.md Settings Email requirements",
+        "js/pages/settings.js"
+      ],
+      "copy": {
+        "heading": "Email updates",
+        "body": [
+          "Order updates, marketing, weekly digest, and security alerts stay independently configurable."
+        ],
+        "callsToAction": [
+          {
+            "label": "Save email settings",
+            "target": "#/settings?section=email"
+          }
+        ]
+      },
+      "layout": "Settings two-column row with four switch rows. Each row uses a 14px title, a small state label, a grey description, and a 28x16 toggle aligned to the right.",
+      "motion": {
+        "purpose": "state_change",
+        "trigger": "press",
+        "behavior": "Toggle one email preference and update its selected and accessible state without shifting the other rows.",
+        "durationMs": 160,
+        "easing": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "reducedMotion": "Toggle immediately."
+      },
+      "componentNeeds": [],
+      "assetNeeds": [],
+      "transformation": {
+        "compact": "Stack four full-width switch rows with 44px touch targets.",
+        "medium": "Use the settings two-column row with the four switches in one panel.",
+        "expanded": "Use the full settings two-column pattern."
+      }
+    },
+    {
+      "id": "settings-notifications",
+      "layoutFamily": "dashboard",
+      "layoutCases": [
+        "settings-two-column"
+      ],
+      "purpose": "Choose which store events require an in-app notification or sound.",
+      "userQuestion": "Which store events should interrupt the administrator?",
+      "stage": "act",
+      "dependencies": [],
+      "evidence": [
+        "FUNCTIONS-AND-UX.md Settings Notifications requirements",
+        "js/pages/settings.js"
+      ],
+      "copy": {
+        "heading": "Notifications",
+        "body": [
+          "New orders, low stock, customer messages, system updates, and notification sound stay independently configurable."
+        ],
+        "callsToAction": [
+          {
+            "label": "Save notification settings",
+            "target": "#/settings?section=notifications"
+          }
+        ]
+      },
+      "layout": "Settings two-column row with five switch rows. Keep the active preference visible as a state label and avoid using green or red on every row.",
+      "motion": {
+        "purpose": "state_change",
+        "trigger": "press",
+        "behavior": "Toggle one notification preference and preserve focus on the same switch.",
+        "durationMs": 160,
+        "easing": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "reducedMotion": "Toggle immediately."
+      },
+      "componentNeeds": [],
+      "assetNeeds": [],
+      "transformation": {
+        "compact": "Stack the five switch rows with full-width touch targets.",
+        "medium": "Use the two-column settings row.",
+        "expanded": "Use the full settings two-column pattern."
+      }
+    },
+    {
+      "id": "settings-appearance",
+      "layoutFamily": "dashboard",
+      "layoutCases": [
+        "settings-two-column"
+      ],
+      "purpose": "Control the dark theme, rail density, and interaction motion.",
+      "userQuestion": "How should JazzyAdmin look and move during work?",
+      "stage": "act",
+      "dependencies": [],
+      "evidence": [
+        "brand-system locked decisions",
+        "FUNCTIONS-AND-UX.md Settings Appearance requirements",
+        "js/theme.js"
+      ],
+      "copy": {
+        "heading": "Appearance",
+        "body": [
+          "Dark mode, compact rail, and interaction animations remain visible as three separate preferences."
+        ],
+        "callsToAction": [
+          {
+            "label": "Save appearance",
+            "target": "#/settings?section=appearance"
+          }
+        ]
+      },
+      "layout": "Settings two-column row with Dark mode, Compact sidebar, and Animations switches. The active dark mode is the default branded state. Reduced-motion preference remains respected even when Animations is enabled.",
+      "motion": {
+        "purpose": "state_change",
+        "trigger": "press",
+        "behavior": "Apply theme and rail changes immediately, persist the selected state locally, and keep the appearance panel stable.",
+        "durationMs": 180,
+        "easing": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "reducedMotion": "Apply visual state immediately and disable nonessential motion."
+      },
+      "componentNeeds": [],
+      "assetNeeds": [],
+      "transformation": {
+        "compact": "Stack the three switch rows and keep Dark mode first.",
+        "medium": "Use the settings two-column row with a single panel.",
+        "expanded": "Use the full settings two-column pattern."
+      }
+    },
+    {
+      "id": "settings-language",
+      "layoutFamily": "dashboard",
+      "layoutCases": [
+        "settings-two-column"
+      ],
+      "purpose": "Set the administrator's language and timezone.",
+      "userQuestion": "Which language and timezone should format the workspace?",
+      "stage": "act",
+      "dependencies": [],
+      "evidence": [
+        "FUNCTIONS-AND-UX.md Settings Language requirements",
+        "js/pages/settings.js"
+      ],
+      "copy": {
+        "heading": "Language and timezone",
+        "body": [
+          "Choose English, Spanish, French, German, Japanese, or Chinese, then set the workspace timezone."
+        ],
+        "callsToAction": [
+          {
+            "label": "Save language settings",
+            "target": "#/settings?section=language"
+          }
+        ]
+      },
+      "layout": "Settings two-column row with language select, timezone select, and one Save action. Keep labels and values in sentence case.",
+      "motion": {
+        "purpose": "feedback",
+        "trigger": "press",
+        "behavior": "Persist the selected language and timezone locally and show Saved without changing unrelated settings.",
+        "durationMs": 160,
+        "easing": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "reducedMotion": "Persist and confirm immediately."
+      },
+      "componentNeeds": [],
+      "assetNeeds": [],
+      "transformation": {
+        "compact": "Stack selects full width with 44px controls.",
+        "medium": "Use the two-column settings row.",
+        "expanded": "Use the full settings two-column pattern."
+      }
+    },
+    {
+      "id": "auth-view",
+      "layoutFamily": "dashboard",
+      "layoutCases": [
+        "app-screen"
+      ],
+      "purpose": "Authenticate the administrator before opening the store workspace.",
+      "userQuestion": "Can the administrator sign in or create an account?",
+      "stage": "act",
+      "dependencies": [],
+      "evidence": [
+        "login.html",
+        "js/auth.js",
+        "FUNCTIONS-AND-UX.md Sign-in screen requirements"
+      ],
+      "copy": {
+        "heading": "Sign in",
+        "body": [
+          "Access JazzyAdmin with Sign in, Register, or Forgot password. Demo account fields remain available for the browser-only sample."
+        ],
+        "callsToAction": [
+          {
+            "label": "Sign in",
+            "target": "login.html#login"
+          },
+          {
+            "label": "Create account",
+            "target": "login.html#register"
+          }
+        ]
+      },
+      "layout": "Centered authentication card on the dark ground with JazzyAdmin J mark, three underline tabs, form validation, password visibility controls, remember me, and visible Google and GitHub interface buttons that do not authenticate. The card has one primary Sign in action.",
+      "motion": {
+        "purpose": "state_change",
+        "trigger": "state_change",
+        "behavior": "Switch auth tabs, reveal passwords, show validation, show the forgot-password success state, and navigate to the dashboard after a valid local sign-in.",
+        "durationMs": 180,
+        "easing": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "reducedMotion": "Switch and validate immediately."
+      },
+      "componentNeeds": [],
+      "assetNeeds": [],
+      "transformation": {
+        "compact": "Use a full-width card with 16px margins, 44px fields, and a compact top theme control.",
+        "medium": "Keep the centered card at a readable width with 24px page padding.",
+        "expanded": "Use the centered authentication card with quiet surrounding space and no decorative imagery."
+      }
+    }
+  ],
+  "responsive": [
+    "Compact 0-640px: use 16-20px page margins, 44px touch targets, a labelled five-item bottom bar, a full navigation sheet, 20-24px titles, full-width search, horizontally scrolling tabs, two-line table rows, 160-200px charts, and stacked settings panels.",
+    "Medium 641-1100px: collapse the rail into a top-bar drawer, keep four or five useful table columns with secondary fields as sublines, stack panels below 340px, preserve the 24px gutter, and use two-column KPI layouts.",
+    "Expanded 1101px and above: use the 55px icon rail, 32px page padding, 24px shared gutter, 12-column grid, balanced paired blocks, 42px table rows, and 28px compact list rows."
+  ],
+  "interactions": [
+    "Global search shows a local toast with the typed query and never claims to open a live result page.",
+    "Theme toggle switches between dark branded mode and the existing light compatibility mode, redraws charts, and persists dashboard-theme.",
+    "Notifications opens five local notification rows, marks unread items, and Mark all as read clears the local badge.",
+    "User menu opens Settings, Help Center, and Logout. Logout clears the saved browser user and returns to login.html.",
+    "Sidebar or bottom navigation updates the hash route, marks the selected item, and closes the mobile drawer.",
+    "All tabs, ranges, filters, sort controls, grid/table switches, and chart selectors use semantic selected state and a 1px accent rule.",
+    "All table and list rows support hover, focus, selected, and disabled states. Disabled rows remain readable and retain their frame.",
+    "All dismissible modals, menus, drawers, and popovers support Escape, click-away where appropriate, and focus return to the trigger.",
+    "Customers support search, status filters, pagination, view modal, edit modal, and confirm-before-delete.",
+    "Products support search, category and stock filters, sorting, grid/table switch, selection, bulk delete confirmation, and pagination.",
+    "Orders support search, status filters, detail modal, status update, print view, invoice download, and export.",
+    "Messages support conversation selection, unread state, compose, send, and local reply insertion.",
+    "FAQ supports one expanded answer at a time. Help supports article search, category filtering, form validation, and local submit feedback.",
+    "Settings switches persist locally. Appearance controls immediately change theme, rail density, and nonessential motion behavior.",
+    "Loading states keep the final frame, headers, and row pitches while replacing values with flat grey bars at their real sizes. No shimmer gradient is used.",
+    "Error states stay inside the failing block and say what failed and when it was last good, with a Retry action.",
+    "Empty states keep the block header and frame, use one sentence, and place the relevant action in the same block. Zeros print as 0, $0, or 0% and missing values print as a grey dash."
+  ],
+  "acceptanceCriteria": [
+    "The data inventory covers stats with 5 headline fields, customers with 12 rows, products with 10 rows across 5 categories, orders with 8 rows, recentOrders with 5 rows, topProducts with 5 rows, activities with 6 rows, conversations with 5 threads, notifications with 5 rows, chartData with 12 monthly sales points, 7 weekly revenue points, 4 analytics revenue points, 5 category sales values, 5 category shares, and 12 customer-growth points, tasks with 5 rows, notes with 4 rows, and faqItems with 6 rows.",
+    "The visible 8 order rows total $2,083.84 and 19 items. The visible 5 recent-order rows total $1,299.91 and 12 items. These are labeled as sample slices and are not presented as the separate store-scope headline totals of $48,352 revenue and 1,284 orders.",
+    "The 5 category-share values total 100%. The 5 category-sales values total $128,000. The 7 daily revenue values total $32,700. The 4 analytics weekly revenue values total $58,500. The 12 monthly sales values total $80,200. Build derives repeated totals from source rows or arrays and asserts these relationships in the local data script.",
+    "The Dashboard is the default route and its title row, finding, store pulse, first chart header, first chart values, recent-order header and first rows, top-product header and first row, activity header and first row, work-queue header and first task, calendar header, notes header, and weather header are visible within the 1440x900 desktop frame.",
+    "Every block with figures includes the visible phrase Sample data once per view through a quiet view notice or the block's body. The phrase is not repeated on every rendered row.",
+    "The Dashboard first finding is adjacent to Review pending orders, making the most frequent job one click away.",
+    "Every view has one h1 noun title, one primary question, one finding, a real local action, and no marketing hero or generic welcome copy.",
+    "Every selected tab, toggle, range, nav item, filter, and chart control uses the shared 1px accent selection rule and has keyboard focus and disabled states.",
+    "Every chart has visible units, dates or categories, a scale, and one question. No chart uses a gradient, rainbow palette, unlabeled axis, or KPI sparkline.",
+    "Every data block defines a normal, empty, zero, loading, and error state. Empty blocks retain their heading and frame. Loading blocks keep row pitch and replace values with flat grey bars. Error blocks include a local Retry action and last-good timestamp.",
+    "Every table row and list row defines hover, selected, focus, and disabled behavior. The identity column stays widest, numeric values are right-aligned with tabular figures, and no empty column is rendered.",
+    "Customers shows 8 rows per page and recomputes the count after search or status filtering. Products shows 9 items per page and recomputes stock counts. Orders preserves the current search and status filter through view, print, download, and export actions.",
+    "The mobile view at 390px has no sidebar taking more than 30% of the width, no page-level horizontal scroll, no squeezed four-column KPI row, and no more than one row of controls above a chart.",
+    "The medium view at 641-1100px keeps table identity visible, stacks panels below 340px, and preserves the 24px shared gutter.",
+    "The desktop grid closes at 1440px using 55px rail, 32px side padding, 12 columns, and 24px gutters. Cards sharing a row end on the same bottom edge or use a pinned footer action instead of blank space.",
+    "Motion is feedback or state_change only. Static reading regions have none. All motion stays within 120-250ms, uses the shared ease-out character, is interruptible, and becomes immediate under prefers-reduced-motion.",
+    "No live synchronization, backend, social authentication, real email delivery, or production data claim is shown. All actions operate on browser-local sample data and existing localStorage behavior.",
+    "The existing product thumbnails are used only where product imagery is required. Customer and message people use stable initials, and no decorative stock photography or invented proof appears."
+  ]
+}

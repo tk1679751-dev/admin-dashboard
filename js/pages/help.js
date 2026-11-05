@@ -10,7 +10,7 @@ export function renderHelp() {
       <div class="page-header-info"><h1>Help Center</h1><p>Get help and support for your dashboard</p></div>
     </div>
 
-    <div class="card" style="margin-bottom:2rem;padding:2.5rem;text-align:center;background:linear-gradient(135deg,var(--primary-light),var(--secondary-light))">
+    <div class="card" style="margin-bottom:2rem;padding:2.5rem;text-align:center;background:var(--raised)">
       <h2 style="margin-bottom:0.5rem">How can we help you?</h2>
       <p class="text-muted" style="margin-bottom:1.25rem">Search our knowledge base or browse categories below</p>
       <div class="search-input-wrapper" style="max-width:520px;margin:0 auto">
@@ -20,7 +20,7 @@ export function renderHelp() {
     </div>
 
     <div class="help-categories">
-      ${helpCategory('Getting Started', 'Learn the basics of NexusAdmin', 'fa-rocket')}
+      ${helpCategory('Getting Started', 'Learn the basics of JazzyAdmin', 'fa-rocket')}
       ${helpCategory('Products & Orders', 'Manage your store inventory', 'fa-box')}
       ${helpCategory('Account & Billing', 'Profile, plans, and payments', 'fa-credit-card')}
       ${helpCategory('Analytics & Reports', 'Understanding your data', 'fa-chart-bar')}

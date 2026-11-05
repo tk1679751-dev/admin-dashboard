@@ -18,7 +18,7 @@
   right: -10%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, var(--primary-light) 0%, transparent 70%);
+  background: var(--primary-light);
   border-radius: 50%;
 }
 
@@ -29,7 +29,7 @@
   left: -10%;
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, var(--secondary-light) 0%, transparent 70%);
+  background: var(--secondary-light);
   border-radius: 50%;
 }
 
@@ -49,7 +49,7 @@
 .auth-logo-icon {
   width: 56px;
   height: 56px;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  background: var(--primary);
   border-radius: var(--radius-lg);
   display: inline-flex;
   align-items: center;
@@ -251,3 +251,26 @@
 .password-strength-bar.weak { width: 33%; background: var(--danger); }
 .password-strength-bar.medium { width: 66%; background: var(--warning); }
 .password-strength-bar.strong { width: 100%; background: var(--success); }
+
+/* Authentication uses the same quiet terminal surfaces as the workspace. */
+.auth-page { background: var(--ground); padding: 32px 16px; }
+.auth-page::before, .auth-page::after { display: none; }
+.auth-container { max-width: 440px; animation: none; }
+.auth-logo { margin-bottom: 24px; }
+.auth-logo-icon { width: 42px; height: 42px; margin-bottom: 12px; background: var(--accent); color: var(--text); border-radius: 6px; font: 600 20px/42px var(--mono); }
+.auth-logo h1 { font-size: var(--fs-title); font-weight: 600; }
+.auth-logo p, .auth-form > p, .auth-footer { color: var(--muted); font-size: 13px; }
+.auth-card { padding: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; box-shadow: var(--shadow); }
+.auth-tabs { margin-bottom: 24px; padding: 0; background: transparent; border-bottom: 1px solid var(--border); border-radius: 0; }
+.auth-tab { border-radius: 0; font-size: 13px; }
+.auth-tab.active { background: transparent; color: var(--text); box-shadow: none; border-bottom-color: var(--accent); }
+.auth-form.active { animation: none; }
+.auth-form h2 { font-size: 20px; font-weight: 600; }
+.form-label { color: var(--text); font-size: 13px; }
+.form-control { min-height: 44px; background: var(--ground); border-color: var(--control); color: var(--text); }
+.auth-submit { min-height: 44px; margin-top: 8px; }
+.auth-social-btn { min-height: 44px; background: transparent; border-color: var(--control); }
+.auth-social-btn:hover { border-color: var(--text); background: var(--raised); }
+.auth-theme-toggle { min-height: 44px; width: 44px; background: var(--surface); border-color: var(--control); box-shadow: none; }
+.auth-link { color: var(--text); }
+.password-toggle { min-height: 44px; width: 44px; right: 0; padding: 0; }

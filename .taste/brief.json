@@ -1,0 +1,53 @@
+{
+  "originalRequest": "Hey! I will call your name,your name is jaz.you are my perfect partner and professional web developer.So,in this folder we have functions-and-ux.md file.First things u should read that file carefully.Second things to do is you must changes  admin dashboard project's ui/ux design to 2026 modern website design.It must be responsive and I need more annimation transistion just like your website (https://www.tasteskill.dev/).Please make it so that it's not obvious the website was created using AI.",
+  "subject": "JazzyAdmin browser-based SaaS store administration dashboard and sign-in experience",
+  "pageType": "dashboard",
+  "scope": "Redesign the existing login screen and authenticated dashboard shell across all current hash-routed screens, preserving existing functionality and sample-data behavior.",
+  "primaryGoal": "Make store administration feel modern, responsive, visually refined, and easier to scan and operate across desktop, tablet, and mobile.",
+  "audience": "Small online-store administrators managing products, orders, customers, analytics, reports, messages, support, and account preferences.",
+  "offer": "A browser-only store admin workspace with dashboards, analytics, reporting, product and customer management, order workflows, messaging, support, and settings.",
+  "primaryAction": "Sign in, then monitor store performance and take operational actions such as reviewing orders, managing products, responding to messages, exporting reports, and updating settings.",
+  "creativeControl": "High within the existing product and functional constraints. Refresh the art direction, hierarchy, density, surfaces, responsive composition, and motion system toward a distinctive 2026 product interface, using tasteskill.dev only as a directional reference for polished transitions and interaction quality. Keep JazzyAdmin recognizable and avoid generic AI-generated dashboard styling.",
+  "requiredContent": [
+    "Authenticated application shell: Fixed or adaptive sidebar with Main, Management, Communication, and Support navigation groups; responsive mobile drawer; top header with menu, breadcrumb, global search, theme toggle, notifications, and user menu.",
+    "Dashboard: Time-based greeting, store overview totals, revenue and order metrics, sales overview chart, revenue analytics chart, recent orders, top products, activity timeline, calendar, tasks, notes, and weather widget.",
+    "Analytics: Revenue, orders, customers, and conversion summary metrics; revenue trend, category sales, category distribution, customer growth, revenue table, and CSV export.",
+    "Reports: Daily, weekly, monthly, and custom-range controls; period summary, chart, report-type cards for sales, revenue, customer, inventory, tax, and performance; PDF and Excel-style browser exports.",
+    "Customers: Search and status filters; customer table with avatar, contact details, status, order count, spend, and join date; pagination; add, view, edit, and confirm-before-delete actions.",
+    "Products: Search, category and stock filters, sorting, grid/table switcher, product cards or rows with image, SKU, pricing, discount, stock, and status; selection, bulk delete, pagination, and navigation to Add Product.",
+    "Add Product: Product form for name, description, category, SKU, price, discount, stock, tags, and image upload; drag-and-drop previews; discounted-price preview; save draft and publish validation flows.",
+    "Orders: Search and status filters; order table with customer, item count, total, status, and date; order detail modal; print invoice, download invoice, and export actions.",
+    "Messages: Conversation list with avatars, previews, timestamps, unread states, thread view, compose field, and browser-only replies for the supplied sample conversations.",
+    "FAQ and Help Center: Six FAQ accordion topics; help search, support categories, popular articles, contact form, and supplied support details.",
+    "Settings: Profile, security, email preferences, notification preferences, appearance controls including dark mode, compact sidebar, and animations, plus language and timezone settings.",
+    "Sign-in experience: Sign In, Register, and Forgot Password tabs; validation, password visibility, strength feedback, remember-me option, theme toggle, and visible Google/GitHub interface buttons without real social authentication."
+  ],
+  "constraints": [
+    "Preserve the existing browser-only architecture using HTML, CSS, and JavaScript modules with no live server or backend assumptions.",
+    "Preserve hash-based navigation, localStorage persistence for user, theme, sidebar, drafts, and preferences, and existing sample data behavior.",
+    "Keep all existing operational behaviors including validation, confirmations, toasts, modals, charts, filters, pagination, exports, print views, and responsive sidebar drawer behavior.",
+    "Maintain light and dark themes, accessible labels and focus states, readable contrast, keyboard-friendly controls, and reduced-motion support.",
+    "Use responsive layouts for desktop, tablet, and narrow mobile screens; avoid relying on hover-only interactions.",
+    "Use motion purposefully for page transitions, navigation, filters, tabs, drawers, modals, charts, loading states, and feedback without making the dashboard feel distracting.",
+    "Do not introduce unsupported business claims, live integrations, real authentication, or fabricated product outcomes.",
+    "External Font Awesome, Chart.js, Google Fonts, and image URLs are currently referenced by the project and should remain replaceable if offline behavior becomes a requirement."
+  ],
+  "brandInputs": [
+    "Product name: JazzyAdmin, from FUNCTIONS-AND-UX.md and the current sidebar/login markup.",
+    "Current visual palette: indigo primary #4F46E5 light / #6366F1 dark, violet secondary #7C3AED light / #8B5CF6 dark, plus green, amber, red, and blue semantic colors, from FUNCTIONS-AND-UX.md and css/variables.css.",
+    "Current typography: Inter with Poppins and system UI fallbacks, from FUNCTIONS-AND-UX.md and css/base.css.",
+    "Current visual language: light and dark themes, gradient brand mark, soft bordered cards, rounded corners, subtle shadows, Font Awesome icons, and Chart.js visualizations, from FUNCTIONS-AND-UX.md and css/*.css.",
+    "Current structure: fixed sidebar, top header, scrolling content region, responsive drawer, and short fade/rise route transition, from FUNCTIONS-AND-UX.md and js/layout.js/js/router.js.",
+    "Existing logo treatment: letter J in a gradient rounded-square mark, from index.html, login.html, and js/layout.js."
+  ],
+  "assumptions": [
+    "The request is for a redesign of the existing admin product interface, not a marketing website, so dashboard rules apply and no marketing landing-page section minimum is needed.",
+    "The existing project files are the source of truth for current functionality and brand tokens; no new brand identity, logo, business claims, or backend capabilities are being introduced in this brief.",
+    "The redesign should cover both the authenticated dashboard and login experience because the supplied project specification defines both as part of the product.",
+    "Animation should be richer than the current 0.25s fade/rise system, but remain purposeful, performant, accessible, and suppressible through the existing appearance setting and reduced-motion preferences.",
+    "The referenced tasteskill.dev URL is treated as a visual direction only. The brief does not require copying its layout, assets, or content.",
+    "The current sample data, support details, and demo credentials remain demonstration content and should not be presented as production claims."
+  ],
+  "unresolved": [],
+  "explicitAnswers": []
+}

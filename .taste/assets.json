@@ -1,0 +1,448 @@
+{
+  "version": 1,
+  "assets": [
+    {
+      "id": "product-thumbnail-01",
+      "kind": "image",
+      "status": "ready",
+      "purpose": "Wireless Headphones Pro thumbnail for ranked products and product management.",
+      "requirements": [
+        "960x960 minimum local JPEG",
+        "Use the existing project-linked product image source from js/data.js."
+      ],
+      "role": "product_image",
+      "sectionIds": [
+        "dashboard-top-products",
+        "products-list"
+      ],
+      "aspectRatio": "1:1",
+      "composition": "Square product crop with the headphones as the central subject, minimal background, no text overlay, and enough edge space for a 44px row crop.",
+      "source": {
+        "kind": "project",
+        "reference": "js/data.js",
+        "license": "Existing project-linked Unsplash image localized from the product source recorded in js/data.js.",
+        "contentType": "image/jpeg"
+      },
+      "destination": "assets/products/product-thumbnail-01.jpg"
+    },
+    {
+      "id": "product-thumbnail-02",
+      "kind": "image",
+      "status": "ready",
+      "purpose": "Smart Watch Series X thumbnail for ranked products and product management.",
+      "requirements": [
+        "960x960 minimum local JPEG",
+        "Use the existing project-linked product image source from js/data.js."
+      ],
+      "role": "product_image",
+      "sectionIds": [
+        "dashboard-top-products",
+        "products-list"
+      ],
+      "aspectRatio": "1:1",
+      "composition": "Square crop with the watch face and band clearly visible, centered on a clean product background, with no text overlay.",
+      "source": {
+        "kind": "project",
+        "reference": "js/data.js",
+        "license": "Existing project-linked Unsplash image localized from the product source recorded in js/data.js.",
+        "contentType": "image/jpeg"
+      },
+      "destination": "assets/products/product-thumbnail-02.jpg"
+    },
+    {
+      "id": "product-thumbnail-03",
+      "kind": "image",
+      "status": "ready",
+      "purpose": "Premium Leather Bag thumbnail for ranked products and product management.",
+      "requirements": [
+        "960x960 minimum local JPEG",
+        "Use the existing project-linked product image source from js/data.js."
+      ],
+      "role": "product_image",
+      "sectionIds": [
+        "dashboard-top-products",
+        "products-list"
+      ],
+      "aspectRatio": "1:1",
+      "composition": "Square crop with the bag as the clear focal subject, neutral surrounding field, and no text overlay.",
+      "source": {
+        "kind": "project",
+        "reference": "js/data.js",
+        "license": "Existing project-linked Unsplash image localized from the product source recorded in js/data.js.",
+        "contentType": "image/jpeg"
+      },
+      "destination": "assets/products/product-thumbnail-03.jpg"
+    },
+    {
+      "id": "product-thumbnail-04",
+      "kind": "image",
+      "status": "ready",
+      "purpose": "Organic Coffee Beans thumbnail for product management.",
+      "requirements": [
+        "960x960 minimum local JPEG",
+        "Use the existing project-linked product image source from js/data.js."
+      ],
+      "role": "product_image",
+      "sectionIds": [
+        "products-list"
+      ],
+      "aspectRatio": "1:1",
+      "composition": "Square crop focused on the coffee product and packaging, with readable texture but no visible promotional text.",
+      "source": {
+        "kind": "project",
+        "reference": "js/data.js",
+        "license": "Existing project-linked Unsplash image localized from the product source recorded in js/data.js.",
+        "contentType": "image/jpeg"
+      },
+      "destination": "assets/products/product-thumbnail-04.jpg"
+    },
+    {
+      "id": "product-thumbnail-05",
+      "kind": "image",
+      "status": "ready",
+      "purpose": "Yoga Mat Premium thumbnail for product management.",
+      "requirements": [
+        "960x960 minimum local JPEG",
+        "Use the existing project-linked product image source from js/data.js."
+      ],
+      "role": "product_image",
+      "sectionIds": [
+        "products-list"
+      ],
+      "aspectRatio": "1:1",
+      "composition": "Square crop with the yoga mat as the main object, restrained sports context, and no decorative text.",
+      "source": {
+        "kind": "project",
+        "reference": "js/data.js",
+        "license": "Existing project-linked Unsplash image localized from the product source recorded in js/data.js.",
+        "contentType": "image/jpeg"
+      },
+      "destination": "assets/products/product-thumbnail-05.jpg"
+    },
+    {
+      "id": "product-thumbnail-06",
+      "kind": "image",
+      "status": "ready",
+      "purpose": "Desk Lamp LED thumbnail for product management.",
+      "requirements": [
+        "960x960 minimum local JPEG",
+        "Use the existing project-linked product image source from js/data.js."
+      ],
+      "role": "product_image",
+      "sectionIds": [
+        "products-list"
+      ],
+      "aspectRatio": "1:1",
+      "composition": "Square crop with the lamp silhouette and light source clearly legible, simple background, and no text overlay.",
+      "source": {
+        "kind": "project",
+        "reference": "js/data.js",
+        "license": "Existing project-linked Unsplash image localized from the product source recorded in js/data.js.",
+        "contentType": "image/jpeg"
+      },
+      "destination": "assets/products/product-thumbnail-06.jpg"
+    },
+    {
+      "id": "product-thumbnail-07",
+      "kind": "image",
+      "status": "ready",
+      "purpose": "Running Shoes Ultra thumbnail for ranked products and product management.",
+      "requirements": [
+        "960x960 minimum local JPEG",
+        "Use the existing project-linked product image source from js/data.js."
+      ],
+      "role": "product_image",
+      "sectionIds": [
+        "dashboard-top-products",
+        "products-list"
+      ],
+      "aspectRatio": "1:1",
+      "composition": "Square product crop with the shoe as the focal object, visible sole and upper, no text overlay, and neutral surrounding space.",
+      "source": {
+        "kind": "project",
+        "reference": "js/data.js",
+        "license": "Existing project-linked Unsplash image localized from the product source recorded in js/data.js.",
+        "contentType": "image/jpeg"
+      },
+      "destination": "assets/products/product-thumbnail-07.jpg"
+    },
+    {
+      "id": "product-thumbnail-08",
+      "kind": "image",
+      "status": "ready",
+      "purpose": "Bluetooth Speaker thumbnail for ranked products and product management.",
+      "requirements": [
+        "960x960 minimum local JPEG",
+        "Use the existing project-linked product image source from js/data.js."
+      ],
+      "role": "product_image",
+      "sectionIds": [
+        "dashboard-top-products",
+        "products-list"
+      ],
+      "aspectRatio": "1:1",
+      "composition": "Square crop with the speaker centered and identifiable, modest background detail, and no text overlay.",
+      "source": {
+        "kind": "project",
+        "reference": "js/data.js",
+        "license": "Existing project-linked Unsplash image localized from the product source recorded in js/data.js.",
+        "contentType": "image/jpeg"
+      },
+      "destination": "assets/products/product-thumbnail-08.jpg"
+    },
+    {
+      "id": "product-thumbnail-09",
+      "kind": "image",
+      "status": "ready",
+      "purpose": "Ceramic Plant Pot thumbnail for product management.",
+      "requirements": [
+        "960x960 minimum local JPEG",
+        "Use the verified Unsplash source page and preserve a square catalog crop."
+      ],
+      "role": "product_image",
+      "sectionIds": [
+        "products-list"
+      ],
+      "aspectRatio": "1:1",
+      "composition": "Square catalog crop with the ceramic pot clearly visible near the center, plant detail secondary, and no text overlay.",
+      "source": {
+        "kind": "external",
+        "reference": "https://unsplash.com/photos/white-ceramic-pot-with-plant-WT2-Z66xWGw",
+        "license": "Unsplash License. The source page states the image is free to use under the Unsplash License.",
+        "contentType": "image/jpeg"
+      },
+      "destination": "assets/products/product-thumbnail-09.jpg"
+    },
+    {
+      "id": "product-thumbnail-10",
+      "kind": "image",
+      "status": "ready",
+      "purpose": "Silk Scarf Collection thumbnail for product management.",
+      "requirements": [
+        "960x960 minimum local JPEG",
+        "Use the verified Unsplash source page and preserve a square fabric crop."
+      ],
+      "role": "product_image",
+      "sectionIds": [
+        "products-list"
+      ],
+      "aspectRatio": "1:1",
+      "composition": "Square crop focused on folded green silk fabric, showing texture and sheen without people, packaging, or text.",
+      "source": {
+        "kind": "external",
+        "reference": "https://unsplash.com/photos/green-textile-Th_WZMUPnO4",
+        "license": "Unsplash License. The source page states the image is free to use under the Unsplash License.",
+        "contentType": "image/jpeg"
+      },
+      "destination": "assets/products/product-thumbnail-10.jpg"
+    },
+    {
+      "id": "font-inter-roman",
+      "kind": "font",
+      "status": "ready",
+      "purpose": "Primary JazzyAdmin interface face for navigation, labels, body copy, titles, forms, tables, and authentication.",
+      "requirements": [
+        "Load as a local variable font with weights 400, 500, 600, and 700.",
+        "Verify the loaded family is Inter and does not fall back to a system font."
+      ],
+      "role": "font",
+      "sectionIds": [
+        "shell",
+        "dashboard-pulse",
+        "dashboard-sales-overview",
+        "dashboard-revenue-analytics",
+        "dashboard-recent-orders",
+        "dashboard-top-products",
+        "dashboard-activity",
+        "dashboard-work-queue",
+        "dashboard-calendar-weather",
+        "analytics-summary",
+        "analytics-revenue-trend",
+        "analytics-category-sales",
+        "analytics-category-share",
+        "analytics-customer-growth",
+        "analytics-revenue-table",
+        "reports-period",
+        "reports-summary",
+        "reports-types",
+        "customers-list",
+        "products-list",
+        "add-product-form",
+        "orders-list",
+        "messages-inbox",
+        "faq-list",
+        "help-center",
+        "settings-profile",
+        "settings-security",
+        "settings-email",
+        "settings-notifications",
+        "settings-appearance",
+        "settings-language",
+        "auth-view"
+      ],
+      "source": {
+        "kind": "external",
+        "reference": "https://github.com/google/fonts/tree/main/ofl/inter",
+        "license": "SIL Open Font License 1.1. Local license copy: assets/fonts/OFL-Inter.txt.",
+        "contentType": "application/octet-stream"
+      },
+      "destination": "assets/fonts/Inter-Variable.ttf"
+    },
+    {
+      "id": "font-inter-italic",
+      "kind": "font",
+      "status": "ready",
+      "purpose": "Licensed Inter italic variant retained with the local family for valid emphasis states if the interface uses them.",
+      "requirements": [
+        "Keep as the real italic companion to the local Inter family.",
+        "Do not use as a display face."
+      ],
+      "role": "font",
+      "sectionIds": [
+        "shell",
+        "dashboard-pulse",
+        "dashboard-sales-overview",
+        "dashboard-revenue-analytics",
+        "dashboard-recent-orders",
+        "dashboard-top-products",
+        "dashboard-activity",
+        "dashboard-work-queue",
+        "dashboard-calendar-weather",
+        "analytics-summary",
+        "analytics-revenue-trend",
+        "analytics-category-sales",
+        "analytics-category-share",
+        "analytics-customer-growth",
+        "analytics-revenue-table",
+        "reports-period",
+        "reports-summary",
+        "reports-types",
+        "customers-list",
+        "products-list",
+        "add-product-form",
+        "orders-list",
+        "messages-inbox",
+        "faq-list",
+        "help-center",
+        "settings-profile",
+        "settings-security",
+        "settings-email",
+        "settings-notifications",
+        "settings-appearance",
+        "settings-language",
+        "auth-view"
+      ],
+      "source": {
+        "kind": "external",
+        "reference": "https://github.com/google/fonts/tree/main/ofl/inter",
+        "license": "SIL Open Font License 1.1. Local license copy: assets/fonts/OFL-Inter.txt.",
+        "contentType": "application/octet-stream"
+      },
+      "destination": "assets/fonts/Inter-Variable-Italic.ttf"
+    },
+    {
+      "id": "font-jetbrains-mono-roman",
+      "kind": "font",
+      "status": "ready",
+      "purpose": "Tabular numeric face for prices, counts, IDs, dates, times, KPI values, chart figures, and changing data.",
+      "requirements": [
+        "Load as a local variable font with numeric weights 400, 500, and 600.",
+        "Verify font-variant-numeric: tabular-nums changes digit widths."
+      ],
+      "role": "font",
+      "sectionIds": [
+        "shell",
+        "dashboard-pulse",
+        "dashboard-sales-overview",
+        "dashboard-revenue-analytics",
+        "dashboard-recent-orders",
+        "dashboard-top-products",
+        "dashboard-activity",
+        "dashboard-work-queue",
+        "dashboard-calendar-weather",
+        "analytics-summary",
+        "analytics-revenue-trend",
+        "analytics-category-sales",
+        "analytics-category-share",
+        "analytics-customer-growth",
+        "analytics-revenue-table",
+        "reports-period",
+        "reports-summary",
+        "reports-types",
+        "customers-list",
+        "products-list",
+        "add-product-form",
+        "orders-list",
+        "messages-inbox",
+        "faq-list",
+        "help-center",
+        "settings-profile",
+        "settings-security",
+        "settings-email",
+        "settings-notifications",
+        "settings-appearance",
+        "settings-language",
+        "auth-view"
+      ],
+      "source": {
+        "kind": "external",
+        "reference": "https://github.com/JetBrains/JetBrainsMono",
+        "license": "SIL Open Font License 1.1. Local license copy: assets/fonts/OFL-JetBrainsMono.txt.",
+        "contentType": "application/octet-stream"
+      },
+      "destination": "assets/fonts/JetBrainsMono-Variable.ttf"
+    },
+    {
+      "id": "font-jetbrains-mono-italic",
+      "kind": "font",
+      "status": "ready",
+      "purpose": "Licensed JetBrains Mono italic companion for any numeric emphasis state that requires a real italic variant.",
+      "requirements": [
+        "Keep as the real italic companion to the local JetBrains Mono family.",
+        "Do not use for body copy or display headings."
+      ],
+      "role": "font",
+      "sectionIds": [
+        "shell",
+        "dashboard-pulse",
+        "dashboard-sales-overview",
+        "dashboard-revenue-analytics",
+        "dashboard-recent-orders",
+        "dashboard-top-products",
+        "dashboard-activity",
+        "dashboard-work-queue",
+        "dashboard-calendar-weather",
+        "analytics-summary",
+        "analytics-revenue-trend",
+        "analytics-category-sales",
+        "analytics-category-share",
+        "analytics-customer-growth",
+        "analytics-revenue-table",
+        "reports-period",
+        "reports-summary",
+        "reports-types",
+        "customers-list",
+        "products-list",
+        "add-product-form",
+        "orders-list",
+        "messages-inbox",
+        "faq-list",
+        "help-center",
+        "settings-profile",
+        "settings-security",
+        "settings-email",
+        "settings-notifications",
+        "settings-appearance",
+        "settings-language",
+        "auth-view"
+      ],
+      "source": {
+        "kind": "external",
+        "reference": "https://github.com/JetBrains/JetBrainsMono",
+        "license": "SIL Open Font License 1.1. Local license copy: assets/fonts/OFL-JetBrainsMono.txt.",
+        "contentType": "application/octet-stream"
+      },
+      "destination": "assets/fonts/JetBrainsMono-Variable-Italic.ttf"
+    }
+  ]
+}

@@ -321,7 +321,7 @@ select.form-control { cursor: pointer; }
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  background: var(--primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -613,9 +613,9 @@ select.form-control { cursor: pointer; }
 
 /* Skeleton loading */
 .skeleton {
-  background: linear-gradient(90deg, var(--bg-alt) 25%, var(--border) 50%, var(--bg-alt) 75%);
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
+  background: var(--raised);
+  background-size: auto;
+  animation: none;
   border-radius: var(--radius);
 }
 
@@ -727,7 +727,7 @@ select.form-control { cursor: pointer; }
 
 .progress-bar {
   height: 100%;
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  background: var(--accent);
   border-radius: 999px;
   transition: width 0.6s ease;
 }

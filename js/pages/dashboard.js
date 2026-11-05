@@ -3,22 +3,15 @@
  */
 
 import { stats, recentOrders, topProducts, activities, tasks, notes } from '../data.js';
-import { getGreeting, getStatusBadge, animateCounters } from '../utils.js';
+import { getStatusBadge, animateCounters } from '../utils.js';
 import { initDashboardCharts } from '../charts.js';
 
 export function renderDashboard() {
   const user = JSON.parse(localStorage.getItem('dashboard-user') || '{}');
   const html = `
-    <div class="welcome-banner animate-fade-in">
-      <div class="welcome-content">
-        <h1>${getGreeting()}, ${user.name?.split(' ')[0] || 'Admin'}! 👋</h1>
-        <p>Here's what's happening with your store today.</p>
-      </div>
-      <div class="welcome-stats">
-        <div><div class="welcome-stat-value">${stats.revenue.value}</div><div class="welcome-stat-label">Revenue</div></div>
-        <div><div class="welcome-stat-value">${stats.orders.value}</div><div class="welcome-stat-label">Orders</div></div>
-        <div><div class="welcome-stat-value">${stats.customers.value}</div><div class="welcome-stat-label">Customers</div></div>
-      </div>
+    <div class="page-header">
+      <div class="page-header-info"><h1>Dashboard</h1><p>What needs attention before the next shipment window? Sample data.</p></div>
+      <div class="page-header-actions"><a class="btn btn-primary" href="#orders?status=pending" data-nav-link="orders">Review pending orders</a></div>
     </div>
 
     <div class="grid grid-5" style="margin-bottom:1.5rem">
@@ -32,12 +25,13 @@ export function renderDashboard() {
     <div class="grid grid-2" style="margin-bottom:1.5rem">
       <div class="card">
         <div class="card-header">
-          <h3><i class="fas fa-chart-area text-primary"></i> Sales Overview</h3>
-          <select class="form-control" style="width:auto;padding:0.375rem 0.75rem;font-size:0.8125rem">
-            <option>This Year</option><option>Last Year</option>
-          </select>
+          <h3><i class="fas fa-chart-area text-primary"></i> Sales overview</h3>
+          <div class="chart-tabs" role="tablist" aria-label="Sales metric">
+            <button class="chart-tab active" type="button" data-chart-metric="revenue" aria-selected="true">Revenue <span>$80,200</span></button>
+            <button class="chart-tab" type="button" data-chart-metric="orders" aria-selected="false">Orders <span>2,165</span></button>
+          </div>
         </div>
-        <div class="card-body"><div class="chart-container"><canvas id="salesChart"></canvas></div></div>
+        <div class="card-body"><div class="chart-container" id="salesChart" role="img" aria-label="Monthly revenue and order movement"></div></div>
       </div>
       <div class="card">
         <div class="card-header">
@@ -46,7 +40,7 @@ export function renderDashboard() {
             <option>This Week</option><option>Last Week</option>
           </select>
         </div>
-        <div class="card-body"><div class="chart-container"><canvas id="revenueChart"></canvas></div></div>
+        <div class="card-body"><div class="chart-container" id="revenueChart" role="img" aria-label="Daily revenue for the current week"></div></div>
       </div>
     </div>
 

@@ -39,7 +39,7 @@ export function renderSettings() {
           </div>
           <div class="form-group"><label class="form-label">Email</label><input class="form-control" id="profile-email" type="email" value="${user.email || 'admin@nexus.com'}"></div>
           <div class="form-group"><label class="form-label">Phone</label><input class="form-control" value="+1 555-0199"></div>
-          <div class="form-group"><label class="form-label">Bio</label><textarea class="form-control" rows="3">Administrator at NexusAdmin dashboard platform.</textarea></div>
+          <div class="form-group"><label class="form-label">Bio</label><textarea class="form-control" rows="3">Administrator at JazzyAdmin store operations.</textarea></div>
           <button class="btn btn-primary" id="save-profile"><i class="fas fa-save"></i> Save Profile</button>
         </div>
 

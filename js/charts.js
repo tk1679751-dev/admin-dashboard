@@ -1,209 +1,84 @@
 /**
- * Chart.js wrapper and chart builders
+ * JazzyAdmin chart adapters. The copied TasteSkill chart kit draws the SVGs.
  */
 
-import { registerChart, destroyCharts } from './ui.js';
+import './app-kit-charts.js';
 import { chartData } from './data.js';
 
-const chartDefaults = {
-  responsive: true,
-  maintainAspectRatio: false,
-  plugins: { legend: { display: false } },
-};
+const money = Charts.fmt.money('USD', 0);
+const integer = Charts.fmt.int;
 
-function getColors() {
-  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-  return {
-    primary: isDark ? '#6366F1' : '#4F46E5',
-    secondary: isDark ? '#8B5CF6' : '#7C3AED',
-    grid: isDark ? 'rgba(148,163,184,0.1)' : 'rgba(0,0,0,0.05)',
-    text: isDark ? '#94A3B8' : '#6B7280',
-  };
+function mount(id, draw) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  draw(el);
 }
 
 export function initDashboardCharts() {
-  destroyCharts();
-  const colors = getColors();
-
-  createChart('salesChart', {
-    type: 'line',
-    data: {
-      labels: chartData.salesOverview.labels,
-      datasets: [{
-        label: 'Sales',
-        data: chartData.salesOverview.sales,
-        borderColor: colors.primary,
-        backgroundColor: colors.primary + '20',
-        fill: true,
-        tension: 0.4,
-        borderWidth: 2,
-        pointRadius: 0,
-        pointHoverRadius: 6,
-      }],
-    },
-    options: {
-      ...chartDefaults,
-      scales: {
-        x: { grid: { display: false }, ticks: { color: colors.text } },
-        y: { grid: { color: colors.grid }, ticks: { color: colors.text, callback: v => '$' + v.toLocaleString() } },
-      },
-      plugins: { ...chartDefaults.plugins, tooltip: { mode: 'index', intersect: false } },
-    },
-  });
-
-  createChart('revenueChart', {
-    type: 'bar',
-    data: {
-      labels: chartData.revenue.labels,
-      datasets: [{
-        label: 'Revenue',
-        data: chartData.revenue.data,
-        backgroundColor: colors.primary + 'CC',
-        borderRadius: 6,
-        borderSkipped: false,
-      }],
-    },
-    options: {
-      ...chartDefaults,
-      scales: {
-        x: { grid: { display: false }, ticks: { color: colors.text } },
-        y: { grid: { color: colors.grid }, ticks: { color: colors.text, callback: v => '$' + v.toLocaleString() } },
-      },
-    },
+  const metric = document.querySelector('[data-chart-metric][aria-selected="true"]')?.dataset.chartMetric || 'revenue';
+  const isOrders = metric === 'orders';
+  mount('salesChart', (el) => Charts.line(el, {
+    labels: chartData.salesOverview.labels,
+    series: [{ name: isOrders ? 'Orders' : 'Revenue', values: isOrders ? chartData.salesOverview.orders : chartData.salesOverview.sales, colour: 'var(--chart-3)' }],
+    format: isOrders ? integer : money,
+    height: 220,
+    xAt: [0, 3, 6, 9, 11],
+  }));
+  mount('revenueChart', (el) => Charts.bars(el, {
+    labels: chartData.revenue.labels,
+    values: chartData.revenue.data,
+    format: money,
+    tickFormat: money,
+    height: 200,
+    colour: 'var(--chart-3)',
+    xAt: [0, 1, 2, 3, 4, 5, 6],
+  }));
+  document.querySelectorAll('[data-chart-metric]').forEach((button) => {
+    if (button.dataset.bound === 'true') return;
+    button.dataset.bound = 'true';
+    button.addEventListener('click', () => {
+      document.querySelectorAll('[data-chart-metric]').forEach((item) => {
+        const selected = item === button;
+        item.classList.toggle('active', selected);
+        item.setAttribute('aria-selected', String(selected));
+      });
+      initDashboardCharts();
+    });
   });
 }
 
 export function initAnalyticsCharts() {
-  destroyCharts();
-  const colors = getColors();
-  const pieColors = [colors.primary, colors.secondary, '#10B981', '#F59E0B', '#3B82F6'];
-
-  createChart('lineChart', {
-    type: 'line',
-    data: {
-      labels: chartData.analytics.line.labels,
-      datasets: [{
-        data: chartData.analytics.line.data,
-        borderColor: colors.primary,
-        backgroundColor: colors.primary + '15',
-        fill: true,
-        tension: 0.4,
-        borderWidth: 2,
-        pointRadius: 4,
-        pointBackgroundColor: colors.primary,
-      }],
-    },
-    options: {
-      ...chartDefaults,
-      plugins: { legend: { display: true, labels: { color: colors.text } } },
-      scales: {
-        x: { grid: { display: false }, ticks: { color: colors.text } },
-        y: { grid: { color: colors.grid }, ticks: { color: colors.text } },
-      },
-    },
-  });
-
-  createChart('barChart', {
-    type: 'bar',
-    data: {
-      labels: chartData.analytics.bar.labels,
-      datasets: [{
-        data: chartData.analytics.bar.data,
-        backgroundColor: pieColors,
-        borderRadius: 6,
-      }],
-    },
-    options: {
-      ...chartDefaults,
-      plugins: { legend: { display: false } },
-      scales: {
-        x: { grid: { display: false }, ticks: { color: colors.text } },
-        y: { grid: { color: colors.grid }, ticks: { color: colors.text, callback: v => '$' + (v/1000) + 'k' } },
-      },
-    },
-  });
-
-  createChart('pieChart', {
-    type: 'doughnut',
-    data: {
-      labels: chartData.analytics.pie.labels,
-      datasets: [{
-        data: chartData.analytics.pie.data,
-        backgroundColor: pieColors,
-        borderWidth: 0,
-        hoverOffset: 8,
-      }],
-    },
-    options: {
-      ...chartDefaults,
-      cutout: '65%',
-      plugins: {
-        legend: { display: true, position: 'bottom', labels: { color: colors.text, padding: 16, usePointStyle: true } },
-      },
-    },
-  });
-
-  createChart('growthChart', {
-    type: 'line',
-    data: {
-      labels: chartData.salesOverview.labels,
-      datasets: [{
-        label: 'Customers',
-        data: chartData.customerGrowth,
-        borderColor: colors.secondary,
-        backgroundColor: colors.secondary + '15',
-        fill: true,
-        tension: 0.4,
-        borderWidth: 2,
-        pointRadius: 0,
-      }],
-    },
-    options: {
-      ...chartDefaults,
-      plugins: { legend: { display: true, labels: { color: colors.text } } },
-      scales: {
-        x: { grid: { display: false }, ticks: { color: colors.text } },
-        y: { grid: { color: colors.grid }, ticks: { color: colors.text } },
-      },
-    },
-  });
+  mount('lineChart', (el) => Charts.line(el, {
+    labels: chartData.analytics.line.labels,
+    series: [{ name: 'Revenue', values: chartData.analytics.line.data, colour: 'var(--chart-3)' }],
+    format: money,
+    height: 220,
+  }));
+  mount('barChart', (el) => Charts.barList(el, chartData.analytics.bar.labels.map((label, i) => ({ label, value: chartData.analytics.bar.data[i] })), { format: money, colour: 'var(--chart-3)', thin: true }));
+  mount('pieChart', (el) => Charts.ring(el, { value: 1, label: '100%', sub: 'sample mix', size: 132, stroke: 6, colour: 'var(--chart-3)' }));
+  mount('growthChart', (el) => Charts.line(el, {
+    labels: chartData.salesOverview.labels,
+    series: [{ name: 'Customers', values: chartData.customerGrowth, colour: 'var(--chart-3)' }],
+    format: integer,
+    height: 200,
+    xAt: [0, 3, 6, 9, 11],
+  }));
 }
 
-export function initReportChart(canvasId, type = 'bar') {
-  const colors = getColors();
-  createChart(canvasId, {
-    type,
-    data: {
-      labels: chartData.salesOverview.labels.slice(0, 6),
-      datasets: [{
-        data: chartData.salesOverview.sales.slice(0, 6),
-        backgroundColor: type === 'line' ? colors.primary + '20' : colors.primary + 'CC',
-        borderColor: colors.primary,
-        borderWidth: type === 'line' ? 2 : 0,
-        fill: type === 'line',
-        tension: 0.4,
-        borderRadius: 6,
-      }],
-    },
-    options: {
-      ...chartDefaults,
-      scales: {
-        x: { grid: { display: false }, ticks: { color: colors.text } },
-        y: { grid: { color: colors.grid }, ticks: { color: colors.text } },
-      },
-    },
-  });
-}
-
-function createChart(canvasId, config) {
-  const canvas = document.getElementById(canvasId);
-  if (!canvas || typeof Chart === 'undefined') return;
-  const chart = new Chart(canvas, config);
-  registerChart(chart);
+export function initReportChart(id = 'reportChart') {
+  mount(id, (el) => Charts.bars(el, {
+    labels: chartData.salesOverview.labels.slice(0, 6),
+    values: chartData.salesOverview.sales.slice(0, 6),
+    format: money,
+    tickFormat: money,
+    height: 220,
+    colour: 'var(--chart-3)',
+  }));
 }
 
 export function refreshChartsOnThemeChange() {
-  const page = document.querySelector('[data-current-page]')?.dataset.currentPage;
+  const page = document.getElementById('main-content')?.dataset.currentPage;
   if (page === 'dashboard') initDashboardCharts();
-  else if (page === 'analytics') initAnalyticsCharts();
+  if (page === 'analytics') initAnalyticsCharts();
+  if (page === 'reports') initReportChart();
 }

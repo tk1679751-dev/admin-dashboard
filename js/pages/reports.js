@@ -85,7 +85,7 @@ function renderReportContent(title, desc) {
     </div>
     <div class="card">
       <div class="card-header"><h3>${title}</h3><p class="text-muted" style="font-size:0.8125rem">${desc}</p></div>
-      <div class="card-body"><div class="chart-container"><canvas id="reportChart"></canvas></div></div>
+      <div class="card-body"><div class="chart-container" id="reportChart" role="img" aria-label="Report revenue by month"></div></div>
     </div>
   `;
 }
@@ -147,7 +147,7 @@ function bindReportEvents() {
 function generateReportHTML(period) {
   return `<!DOCTYPE html><html><head><title>${period} Report</title>
     <style>body{font-family:Arial;padding:40px}h1{color:#4F46E5}table{width:100%;border-collapse:collapse}td,th{padding:8px;border:1px solid #ddd}</style></head>
-    <body><h1>NexusAdmin ${period.charAt(0).toUpperCase() + period.slice(1)} Report</h1>
+    <body><h1>JazzyAdmin ${period.charAt(0).toUpperCase() + period.slice(1)} Report</h1>
     <p>Generated: ${new Date().toLocaleDateString()}</p>
     <table><tr><th>Metric</th><th>Value</th></tr>
     <tr><td>Revenue</td><td>$5,230</td></tr><tr><td>Orders</td><td>142</td></tr>

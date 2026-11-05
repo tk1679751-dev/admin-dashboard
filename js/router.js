@@ -24,16 +24,12 @@ export function navigateTo(page) {
 
   const container = document.getElementById('main-content');
   if (container) {
-    container.style.opacity = '0';
-    container.style.transform = 'translateY(8px)';
-    container.style.transition = 'opacity 0.2s, transform 0.2s';
-
+    container.classList.add('route-changing');
     setTimeout(async () => {
       container.innerHTML = await pages[page]();
-      container.style.opacity = '1';
-      container.style.transform = 'translateY(0)';
+      container.classList.remove('route-changing');
       window.location.hash = page;
-    }, 150);
+    }, 80);
   }
 }
 
