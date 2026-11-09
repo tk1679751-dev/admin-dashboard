@@ -395,28 +395,9 @@
   flex-wrap: wrap;
 }
 
-/* Responsive */
+/* Responsive — shell/navigation breakpoints live in css/terminal.css (design layer) */
 @media (max-width: 1024px) {
   .header-search { max-width: 280px; }
-}
-
-@media (max-width: 768px) {
-  .sidebar {
-    transform: translateX(-100%);
-    width: var(--sidebar-width) !important;
-  }
-
-  .sidebar.mobile-open { transform: translateX(0); }
-
-  .main-wrapper { margin-left: 0 !important; }
-
-  .hamburger { display: flex; }
-
-  .header-search { display: none; }
-
-  .breadcrumb { display: none; }
-
-  .main-content { padding: 1rem; }
 }
 
 @media (max-width: 480px) {

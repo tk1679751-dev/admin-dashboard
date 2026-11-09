@@ -43,7 +43,7 @@ The signed-in screen is a fixed left sidebar plus a top header and a scrolling c
 - **Communication:** Messages (badge 3)
 - **Support:** FAQ, Help Center, Settings
 
-The sidebar can collapse to icons only (72px). On a narrow screen it becomes a drawer with a dim overlay. Collapse state is remembered in the browser.
+The sidebar can collapse to icons only (55px rail). On a narrow screen it becomes a drawer with a dim overlay; on phones (≤640px) it becomes a labelled bottom bar (Dashboard, Orders, Products, Messages, Settings) with a full-screen navigation sheet opened from the menu button. Collapse state is remembered in the browser.
 
 ### Visual style
 
